@@ -42,5 +42,13 @@ public class BGunWeapon : MonoBehaviour
         var dir = Quaternion.Euler(0, 0, degrees) * gun.transform.up;
         bullRb.velocity = dir * bullSpeed;
         bull.transform.rotation = Quaternion.AngleAxis(degrees, Vector3.forward);
+        if (gun.localPosition.x < 0)
+        {
+            bull.transform.localScale = new Vector3(-1, 1, 1);
+        }
+
+        if(bull.GetComponent<BMeleeBullet>()){
+            bull.transform.SetParent(gun);
+        }
     }
 }
