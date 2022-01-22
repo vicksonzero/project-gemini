@@ -1,0 +1,33 @@
+{
+    "name": "CommonControls",
+    "maps": [
+        {
+            "name": "Basic",
+            "id": "afd7ce60-d35d-45e3-9ca0-9a709becc1e3",
+            "actions": [
+                {
+                    "name": "Pause",
+                    "type": "Button",
+                    "id": "112c1b71-b24a-4281-b766-cb662cc933c4",
+                    "expectedControlType": "Button",
+                    "processors": "",
+                    "interactions": ""
+                }
+            ],
+            "bindings": [
+                {
+                    "name": "",
+                    "id": "4d7d44df-9e02-4ad5-8d75-c749eb68cda6",
+                    "path": "<Keyboard>/escape",
+                    "interactions": "",
+                    "processors": "",
+                    "groups": "",
+                    "action": "Pause",
+                    "isComposite": false,
+                    "isPartOfComposite": false
+                }
+            ]
+        }
+    ],
+    "controlSchemes": []
+}
