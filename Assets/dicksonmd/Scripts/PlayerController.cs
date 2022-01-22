@@ -25,7 +25,7 @@ public class PlayerController : MonoBehaviour
 
     protected InputAction GetInputAction()
     {
-        return isPlayer1 ? playerControls.Basic.Move1 : playerControls.Basic.Move2;
+        return isPlayer1 ? playerControls.Basic.Player1Move : playerControls.Basic.Player2Move;
     }
 
     void Start()

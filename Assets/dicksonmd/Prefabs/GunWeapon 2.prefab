@@ -53,15 +53,19 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2161225166777502673, guid: e7f5f67b46bcf6f4cb74733ea19fc1f5, type: 3}
       propertyPath: m_Name
-      value: GunWeapon2
+      value: GunWeapon 2
       objectReference: {fileID: 0}
     - target: {fileID: 2161225166777502675, guid: e7f5f67b46bcf6f4cb74733ea19fc1f5, type: 3}
       propertyPath: rapid
-      value: 0.15
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161225166777502675, guid: e7f5f67b46bcf6f4cb74733ea19fc1f5, type: 3}
+      propertyPath: spray
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2161225166777502675, guid: e7f5f67b46bcf6f4cb74733ea19fc1f5, type: 3}
       propertyPath: bullSpeed
-      value: 8
+      value: 10
       objectReference: {fileID: 0}
     - target: {fileID: 2161225166777502675, guid: e7f5f67b46bcf6f4cb74733ea19fc1f5, type: 3}
       propertyPath: bullPrefab

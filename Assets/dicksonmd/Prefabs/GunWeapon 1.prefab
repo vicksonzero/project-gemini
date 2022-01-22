@@ -11,7 +11,7 @@ GameObject:
   - component: {fileID: 2161225166777502672}
   - component: {fileID: 2161225166777502675}
   m_Layer: 0
-  m_Name: GunWeapon
+  m_Name: GunWeapon 1
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -46,8 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bullPrefab: {fileID: 3343201322719742756, guid: 04b2d11a3e70e3c4c95baaf61a447e1e, type: 3}
-  rapid: 0.3
-  bullSpeed: 6
+  rapid: 0.2
+  bullSpeed: 8
   nextCanShoot: 0
   guns:
   - {fileID: 2161225166871565532}

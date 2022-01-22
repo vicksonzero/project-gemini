@@ -7,6 +7,8 @@ public class BGunWeapon : MonoBehaviour
     public BBullet bullPrefab;
     [Tooltip("in seconds")]
     public float rapid = 0.3f;
+    [Tooltip("in degrees")]
+    public float spray = 0;
     public float bullSpeed = 1;
     public float nextCanShoot = 0;
 
@@ -32,10 +34,13 @@ public class BGunWeapon : MonoBehaviour
 
     void Shoot()
     {
-        Debug.Log("Shoot");
         var gun = guns[gunID];
         var bull = Instantiate(bullPrefab, gun.position, Quaternion.identity);
+        bull.transform.position += Vector3.forward;
         var bullRb = bull.GetComponent<Rigidbody2D>();
-        bullRb.velocity = gun.transform.up * bullSpeed;
+        var degrees = Random.Range(-spray, spray);
+        var dir = Quaternion.Euler(0, 0, degrees) * gun.transform.up;
+        bullRb.velocity = dir * bullSpeed;
+        bull.transform.rotation = Quaternion.AngleAxis(degrees, Vector3.forward);
     }
 }
