@@ -254,7 +254,7 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             }
         }
 
-        private void PerformInteractiveRebind(InputAction action, int bindingIndex, bool allCompositeParts = false)
+        private void PerformInteractiveRebind(InputAction action, int bindingIndex, bool allCompositeParts = false, bool isDuplicate = false)
         {
             m_RebindOperation?.Cancel(); // Will null out m_RebindOperation.
 
@@ -264,11 +264,15 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 m_RebindOperation = null;
             }
 
+            // Disable the action before rebind
+            action.Disable();
+
             // Configure the rebind.
             m_RebindOperation = action.PerformInteractiveRebinding(bindingIndex)
                 .OnCancel(
                     operation =>
                     {
+                        action.Enable();
                         m_RebindStopEvent?.Invoke(this, operation);
                         m_RebindOverlay?.SetActive(false);
                         UpdateBindingDisplay();
@@ -277,8 +281,20 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 .OnComplete(
                     operation =>
                     {
+                        action.Enable();
                         m_RebindOverlay?.SetActive(false);
                         m_RebindStopEvent?.Invoke(this, operation);
+
+                        // de-duplicate
+                        if (CheckDuplicateBindings(action, bindingIndex, allCompositeParts))
+                        {
+                            action.RemoveBindingOverride(bindingIndex);
+                            CleanUp();
+                            PerformInteractiveRebind(action, bindingIndex, allCompositeParts, true);
+                            return;
+                        }
+
+
                         UpdateBindingDisplay();
                         CleanUp();
 
@@ -291,19 +307,31 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                                 PerformInteractiveRebind(action, nextBindingIndex, true);
                         }
                     });
+            foreach (var item in m_ControlsExcluding)
+            {
+                Debug.Log($"WithControlsExcluding: {item}");
+                m_RebindOperation.WithControlsExcluding(item);
+            }
+            if (!string.IsNullOrEmpty(m_CancellingThrough))
+            {
+                Debug.Log($"WithCancelingThrough: {m_CancellingThrough}");
+                m_RebindOperation.WithCancelingThrough(m_CancellingThrough);
+            }
 
             // If it's a part binding, show the name of the part in the UI.
             var partName = default(string);
             if (action.bindings[bindingIndex].isPartOfComposite)
                 partName = $"Binding '{action.bindings[bindingIndex].name}'. ";
 
+            var cancelText = "(Press Escape to cancel)";
+            var duplicateTest = isDuplicate ? "\nPlease try another button" : "";
             // Bring up rebind overlay, if we have one.
             m_RebindOverlay?.SetActive(true);
             if (m_RebindText != null)
             {
                 var text = !string.IsNullOrEmpty(m_RebindOperation.expectedControlType)
-                    ? $"{partName}Waiting for {m_RebindOperation.expectedControlType} input..."
-                    : $"{partName}Waiting for input...";
+                    ? $"{partName}\nWaiting for {m_RebindOperation.expectedControlType} input...{duplicateTest}\n\n{cancelText}"
+                    : $"{partName}\nWaiting for input...\n\n{cancelText}";
                 m_RebindText.text = text;
             }
 
@@ -316,6 +344,38 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
             m_RebindStartEvent?.Invoke(this, m_RebindOperation);
 
             m_RebindOperation.Start();
+        }
+
+
+        /// <summary>
+        /// returns true if duplicate is found
+        /// </summary>
+        private bool CheckDuplicateBindings(InputAction action, int bindingIndex, bool allCompositeParts = false)
+        {
+            var newBinding = action.bindings[bindingIndex];
+            // check against other bindings
+            foreach (var binding in action.actionMap.bindings)
+            {
+                if (binding.action == newBinding.action) continue;
+                if (binding.effectivePath == newBinding.effectivePath)
+                {
+                    Debug.Log("Duplicate binding found: " + newBinding.effectivePath);
+                    return true;
+                }
+            }
+            // check for my composite bindings
+            if (allCompositeParts)
+            {
+                for (int i = 1; i < bindingIndex; i++)
+                {
+                    if (action.bindings[i].effectivePath == newBinding.effectivePath)
+                    {
+                        Debug.Log("Duplicate binding found: " + newBinding.effectivePath);
+                        return true;
+                    }
+                }
+            }
+            return false;
         }
 
         protected void OnEnable()
@@ -377,6 +437,19 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         [SerializeField]
         private InputBinding.DisplayStringOptions m_DisplayStringOptions;
 
+        [Tooltip("List of binding what will be excluded from registering in the keybind")]
+        [SerializeField]
+        private string[] m_ControlsExcluding = new string[] {
+            "<Mouse>/leftButton",
+            "<Mouse>/rightButton",
+            "<Mouse>/press",
+            "<Pointer>/position",
+         };
+
+        [Tooltip("A binding that can cancel the keybind")]
+        [SerializeField]
+        private string m_CancellingThrough = "<Keyboard>/escape";
+
         [Tooltip("Text label that will receive the name of the action. Optional. Set to None to have the "
             + "rebind UI not show a label for the action.")]
         [SerializeField]
@@ -415,14 +488,19 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
         // We want the label for the action name to update in edit mode, too, so
         // we kick that off from here.
-        #if UNITY_EDITOR
+#if UNITY_EDITOR
         protected void OnValidate()
         {
             UpdateActionLabel();
             UpdateBindingDisplay();
         }
 
-        #endif
+#endif
+        protected void Start()
+        {
+            UpdateActionLabel();
+            UpdateBindingDisplay();
+        }
 
         private void UpdateActionLabel()
         {

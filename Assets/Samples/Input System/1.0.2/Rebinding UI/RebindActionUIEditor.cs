@@ -17,6 +17,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
         {
             m_ActionProperty = serializedObject.FindProperty("m_Action");
             m_BindingIdProperty = serializedObject.FindProperty("m_BindingId");
+            m_ControlsExcludingProperty = serializedObject.FindProperty("m_ControlsExcluding");
+            m_CancellingThroughProperty = serializedObject.FindProperty("m_CancellingThrough");
             m_ActionLabelProperty = serializedObject.FindProperty("m_ActionLabel");
             m_BindingTextProperty = serializedObject.FindProperty("m_BindingText");
             m_RebindOverlayProperty = serializedObject.FindProperty("m_RebindOverlay");
@@ -51,6 +53,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                 var optionsNew = (InputBinding.DisplayStringOptions)EditorGUILayout.EnumFlagsField(m_DisplayOptionsLabel, optionsOld);
                 if (optionsOld != optionsNew)
                     m_DisplayStringOptionsProperty.intValue = (int)optionsNew;
+                EditorGUILayout.PropertyField(m_ControlsExcludingProperty);
+                EditorGUILayout.PropertyField(m_CancellingThroughProperty);
             }
 
             // UI section.
@@ -151,6 +155,8 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
 
         private SerializedProperty m_ActionProperty;
         private SerializedProperty m_BindingIdProperty;
+        private SerializedProperty m_ControlsExcludingProperty;
+        private SerializedProperty m_CancellingThroughProperty;
         private SerializedProperty m_ActionLabelProperty;
         private SerializedProperty m_BindingTextProperty;
         private SerializedProperty m_RebindOverlayProperty;
