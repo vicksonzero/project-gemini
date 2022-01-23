@@ -12,8 +12,6 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 2c84f57654d00064cb6fd68916f31b22, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  meleeLifeTLme: 0.5
-  nextCanDie: 0
 --- !u!1 &6784823921859868397
 GameObject:
   m_ObjectHideFlags: 0
@@ -124,14 +122,14 @@ CapsuleCollider2D:
   m_PrefabInstance: {fileID: 0}
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 6784823921859868397}
-  m_Enabled: 1
+  m_Enabled: 0
   m_Density: 1
   m_Material: {fileID: 0}
   m_IsTrigger: 1
   m_UsedByEffector: 0
   m_UsedByComposite: 0
   m_Offset: {x: 0, y: 0}
-  m_Size: {x: 0.49, y: 0.28}
+  m_Size: {x: 0.45, y: 0.2}
   m_Direction: 1
 --- !u!1001 &4787701090405699569
 PrefabInstance:

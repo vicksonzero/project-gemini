@@ -1817,6 +1817,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1335127928}
+  - component: {fileID: 1335127931}
+  - component: {fileID: 1335127930}
   - component: {fileID: 1335127927}
   - component: {fileID: 1335127926}
   - component: {fileID: 1335127929}
@@ -1894,6 +1896,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1335127930
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335127925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d66787e84d7640ba3d8aff22dd524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1335127931
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335127925}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cee59b081d17de41a81e356b0529800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1349307655
 GameObject:
   m_ObjectHideFlags: 0
@@ -2196,6 +2222,8 @@ GameObject:
   serializedVersion: 6
   m_Component:
   - component: {fileID: 1446769815}
+  - component: {fileID: 1446769818}
+  - component: {fileID: 1446769817}
   - component: {fileID: 1446769813}
   - component: {fileID: 1446769814}
   - component: {fileID: 1446769816}
@@ -2273,6 +2301,30 @@ Rigidbody2D:
   m_SleepingMode: 1
   m_CollisionDetection: 0
   m_Constraints: 4
+--- !u!114 &1446769817
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446769812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 157d66787e84d7640ba3d8aff22dd524, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &1446769818
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1446769812}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 5cee59b081d17de41a81e356b0529800, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &1468142587
 GameObject:
   m_ObjectHideFlags: 0

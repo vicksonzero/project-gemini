@@ -12,6 +12,8 @@ public class BGunWeapon : MonoBehaviour
     public float bullSpeed = 1;
     public float nextCanShoot = 0;
 
+    BPlayer player;
+
     public Transform[] guns;
 
     public int gunID = 0;
@@ -19,6 +21,9 @@ public class BGunWeapon : MonoBehaviour
     void Start()
     {
         nextCanShoot = Time.fixedTime;
+        player = GetComponentInParent<BPlayer>();
+
+        if (player == null) enabled = false;
     }
 
     // Update is called once per frame
@@ -46,8 +51,9 @@ public class BGunWeapon : MonoBehaviour
         {
             bull.transform.localScale = new Vector3(-1, 1, 1);
         }
-
-        if(bull.GetComponent<BMeleeBullet>()){
+        bull.parentPlayer = player;
+        if (bull.GetComponent<BMeleeBullet>())
+        {
             bull.transform.SetParent(gun);
         }
     }
