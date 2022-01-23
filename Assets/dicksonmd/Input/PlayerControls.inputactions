@@ -24,7 +24,7 @@
                     "initialStateCheck": true
                 },
                 {
-                    "name": "Transfer",
+                    "name": "PassGem",
                     "type": "Button",
                     "id": "6f0c335f-7bc7-456f-8a83-12012ce31e79",
                     "expectedControlType": "Button",
@@ -173,7 +173,7 @@
                     "interactions": "",
                     "processors": "",
                     "groups": "",
-                    "action": "Transfer",
+                    "action": "PassGem",
                     "isComposite": false,
                     "isPartOfComposite": false
                 }

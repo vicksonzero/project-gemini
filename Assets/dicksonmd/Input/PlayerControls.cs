@@ -46,7 +46,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""initialStateCheck"": true
                 },
                 {
-                    ""name"": ""Transfer"",
+                    ""name"": ""PassGem"",
                     ""type"": ""Button"",
                     ""id"": ""6f0c335f-7bc7-456f-8a83-12012ce31e79"",
                     ""expectedControlType"": ""Button"",
@@ -195,7 +195,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                     ""interactions"": """",
                     ""processors"": """",
                     ""groups"": """",
-                    ""action"": ""Transfer"",
+                    ""action"": ""PassGem"",
                     ""isComposite"": false,
                     ""isPartOfComposite"": false
                 }
@@ -208,7 +208,7 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
         m_Basic = asset.FindActionMap("Basic", throwIfNotFound: true);
         m_Basic_Player1Move = m_Basic.FindAction("Player1Move", throwIfNotFound: true);
         m_Basic_Player2Move = m_Basic.FindAction("Player2Move", throwIfNotFound: true);
-        m_Basic_Transfer = m_Basic.FindAction("Transfer", throwIfNotFound: true);
+        m_Basic_PassGem = m_Basic.FindAction("PassGem", throwIfNotFound: true);
     }
 
     public void Dispose()
@@ -270,14 +270,14 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     private IBasicActions m_BasicActionsCallbackInterface;
     private readonly InputAction m_Basic_Player1Move;
     private readonly InputAction m_Basic_Player2Move;
-    private readonly InputAction m_Basic_Transfer;
+    private readonly InputAction m_Basic_PassGem;
     public struct BasicActions
     {
         private @PlayerControls m_Wrapper;
         public BasicActions(@PlayerControls wrapper) { m_Wrapper = wrapper; }
         public InputAction @Player1Move => m_Wrapper.m_Basic_Player1Move;
         public InputAction @Player2Move => m_Wrapper.m_Basic_Player2Move;
-        public InputAction @Transfer => m_Wrapper.m_Basic_Transfer;
+        public InputAction @PassGem => m_Wrapper.m_Basic_PassGem;
         public InputActionMap Get() { return m_Wrapper.m_Basic; }
         public void Enable() { Get().Enable(); }
         public void Disable() { Get().Disable(); }
@@ -293,9 +293,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Player2Move.started -= m_Wrapper.m_BasicActionsCallbackInterface.OnPlayer2Move;
                 @Player2Move.performed -= m_Wrapper.m_BasicActionsCallbackInterface.OnPlayer2Move;
                 @Player2Move.canceled -= m_Wrapper.m_BasicActionsCallbackInterface.OnPlayer2Move;
-                @Transfer.started -= m_Wrapper.m_BasicActionsCallbackInterface.OnTransfer;
-                @Transfer.performed -= m_Wrapper.m_BasicActionsCallbackInterface.OnTransfer;
-                @Transfer.canceled -= m_Wrapper.m_BasicActionsCallbackInterface.OnTransfer;
+                @PassGem.started -= m_Wrapper.m_BasicActionsCallbackInterface.OnPassGem;
+                @PassGem.performed -= m_Wrapper.m_BasicActionsCallbackInterface.OnPassGem;
+                @PassGem.canceled -= m_Wrapper.m_BasicActionsCallbackInterface.OnPassGem;
             }
             m_Wrapper.m_BasicActionsCallbackInterface = instance;
             if (instance != null)
@@ -306,9 +306,9 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
                 @Player2Move.started += instance.OnPlayer2Move;
                 @Player2Move.performed += instance.OnPlayer2Move;
                 @Player2Move.canceled += instance.OnPlayer2Move;
-                @Transfer.started += instance.OnTransfer;
-                @Transfer.performed += instance.OnTransfer;
-                @Transfer.canceled += instance.OnTransfer;
+                @PassGem.started += instance.OnPassGem;
+                @PassGem.performed += instance.OnPassGem;
+                @PassGem.canceled += instance.OnPassGem;
             }
         }
     }
@@ -317,6 +317,6 @@ public partial class @PlayerControls : IInputActionCollection2, IDisposable
     {
         void OnPlayer1Move(InputAction.CallbackContext context);
         void OnPlayer2Move(InputAction.CallbackContext context);
-        void OnTransfer(InputAction.CallbackContext context);
+        void OnPassGem(InputAction.CallbackContext context);
     }
 }
