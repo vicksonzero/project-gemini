@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using static BEnemyEntryStayLeaveBehaviour;
 
 public class BSpawner : MonoBehaviour
 {
@@ -8,8 +9,8 @@ public class BSpawner : MonoBehaviour
     public GameObject basicEnemyPrefab;
     [Header("Scripting")]
 
-    public Vector3 spawnPointer;
-    public Vector3 dirPointer;
+    public Vector3 spawnPos;
+    public Vector3 stopPos;
 
     [Header("States")]
     public float fixedTime;
@@ -19,108 +20,146 @@ public class BSpawner : MonoBehaviour
     protected SpawnEnemyMethod[] spawnScript;
     public delegate void SpawnEnemyMethod();
 
+    protected EnemyEntryStayLeaveParams enemyEntryStayLeaveParams;
+
 
     // Start is called before the first frame update
     void Start()
     {
-        spawnPointer = Vector3.zero;
-        dirPointer = Vector3.down;
+        spawnPos = Vector3.zero;
+        stopPos = Vector3.down;
+
+        enemyEntryStayLeaveParams = new EnemyEntryStayLeaveParams()
+        {
+            moveSpeed = 2,
+            moveDir = new Vector3(-1, 0.5f, 0),
+            steer = 0.35f,
+            stopPos = stopPos,
+
+            stayTime = 3,
+            rapid = 1.3f,
+
+            shootDuringEntry = false,
+            shootDuringStay = true,
+            shootDuringLeave = false,
+        };
 
         // TODO: change into list of commands so that i can isolate Wait() commands
         spawnScript = new SpawnEnemyMethod[] {
             () => Wait(2),
             () => Debug.Log("Start"),
-            () => Debug.Log("Wave 1"),
+            () => Debug.Log("Wave 1R"),
 
-            () => dirPointer = Vector3.down * 1.5f,
             () => {
-                var enemy = Instantiate(basicEnemyPrefab);
-                enemy.transform.position = transform.position + spawnPointer;
-                var rb = enemy.GetComponent<Rigidbody2D>();
-                rb.velocity = dirPointer;
-                var ad = enemy.AddComponent<BAutoDie>();
-                ad.lifeTime = 20;
-            },
-            () => spawnPointer.x += 1,
-            () => Wait(1),
-            () => {
-                var enemy = Instantiate(basicEnemyPrefab);
-                enemy.transform.position = transform.position + spawnPointer;
-                var rb = enemy.GetComponent<Rigidbody2D>();
-                rb.velocity = dirPointer;
-                var ad = enemy.AddComponent<BAutoDie>();
-                ad.lifeTime = 20;
-            },
-            () => spawnPointer.x += 1,
-            () => Wait(1),
-            () => {
-                var enemy = Instantiate(basicEnemyPrefab);
-                enemy.transform.position = transform.position + spawnPointer;
-                var rb = enemy.GetComponent<Rigidbody2D>();
-                rb.velocity = dirPointer;
-                var ad = enemy.AddComponent<BAutoDie>();
-                ad.lifeTime = 20;
-            },
-            () => spawnPointer.x += 1,
-            () => Wait(1),
-            () => {
-                var enemy = Instantiate(basicEnemyPrefab);
-                enemy.transform.position = transform.position + spawnPointer;
-                var rb = enemy.GetComponent<Rigidbody2D>();
-                rb.velocity = dirPointer;
-                var ad = enemy.AddComponent<BAutoDie>();
-                ad.lifeTime = 20;
-            },
-            () => spawnPointer.x += 1,
-            () => Wait(4),
+                spawnPos = Vector3.right;
+                stopPos = spawnPos + Vector3.down * 4f;
 
+                enemyEntryStayLeaveParams.moveDir = Vector3.down;
+                enemyEntryStayLeaveParams.stopPos = stopPos;
+                enemyEntryStayLeaveParams.stayTime = 3;
+                enemyEntryStayLeaveParams.rapid = 1.3f;
+                enemyEntryStayLeaveParams.shootDuringEntry = false;
+                enemyEntryStayLeaveParams.shootDuringStay = true;
+                enemyEntryStayLeaveParams.shootDuringLeave = false;
+            },
+            () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
+            () => Wait(1),
+            () => {
+                spawnPos.x += 1.5f;
+                stopPos.x = spawnPos.x;
+                stopPos.y -= 0.5f;
+                enemyEntryStayLeaveParams.stopPos = stopPos;
+            },
+            // () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
+            // () => Wait(1),
+            () => {
+                spawnPos.x += 1.5f;
+                stopPos.x = spawnPos.x;
+                stopPos.y -= 0.5f;
+                enemyEntryStayLeaveParams.stopPos = stopPos;
+            },
+            () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
+            () => Wait(6),
+
+
+
+            () => Debug.Log("Wave 1L"),
+            () => {
+                spawnPos = Vector3.left;
+                stopPos = spawnPos + Vector3.down * 4f;
+
+                enemyEntryStayLeaveParams.moveDir = Vector3.down;
+                enemyEntryStayLeaveParams.stopPos = stopPos;
+                enemyEntryStayLeaveParams.stayTime = 3;
+                enemyEntryStayLeaveParams.rapid = 1.3f;
+                enemyEntryStayLeaveParams.shootDuringEntry = false;
+                enemyEntryStayLeaveParams.shootDuringStay = true;
+                enemyEntryStayLeaveParams.shootDuringLeave = false;
+            },
+            () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
+            () => Wait(1),
+            () => {
+                spawnPos.x -= 1.5f;
+                stopPos.x = spawnPos.x;
+                stopPos.y -= 0.5f;
+                enemyEntryStayLeaveParams.stopPos = stopPos;
+            },
+            // () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
+            // () => Wait(1),
+            () => {
+                spawnPos.x -= 1.5f;
+                stopPos.x = spawnPos.x;
+                stopPos.y -= 0.5f;
+                enemyEntryStayLeaveParams.stopPos = stopPos;
+            },
+            () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
+            () => Wait(8),
 
 
             () => Debug.Log("Wave 2"),
-            () => spawnPointer = Vector3.zero,
+            () => {
+                spawnPos = Vector3.left;
+                stopPos = spawnPos + Vector3.down * 4f;
 
-            () => {
-                var enemy = Instantiate(basicEnemyPrefab);
-                enemy.transform.position = transform.position + spawnPointer;
-                var rb = enemy.GetComponent<Rigidbody2D>();
-                rb.velocity = dirPointer;
-                var ad = enemy.AddComponent<BAutoDie>();
-                ad.lifeTime = 20;
+                enemyEntryStayLeaveParams.moveDir = Vector3.down;
+                enemyEntryStayLeaveParams.stopPos = stopPos;
+                enemyEntryStayLeaveParams.stayTime = 3;
+                enemyEntryStayLeaveParams.rapid = 1.3f;
+                enemyEntryStayLeaveParams.shootDuringEntry = false;
+                enemyEntryStayLeaveParams.shootDuringStay = true;
+                enemyEntryStayLeaveParams.shootDuringLeave = false;
             },
-            () => spawnPointer.x -= 1,
+            () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
             () => Wait(1),
             () => {
-                var enemy = Instantiate(basicEnemyPrefab);
-                enemy.transform.position = transform.position + spawnPointer;
-                var rb = enemy.GetComponent<Rigidbody2D>();
-                rb.velocity = dirPointer;
-                var ad = enemy.AddComponent<BAutoDie>();
-                ad.lifeTime = 20;
+                spawnPos.x -= 1.5f;
+                stopPos.x = spawnPos.x;
+                stopPos.y -= 0.5f;
+                enemyEntryStayLeaveParams.stopPos = stopPos;
             },
-            () => spawnPointer.x -= 1,
+            () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
             () => Wait(1),
             () => {
-                var enemy = Instantiate(basicEnemyPrefab);
-                enemy.transform.position = transform.position + spawnPointer;
-                var rb = enemy.GetComponent<Rigidbody2D>();
-                rb.velocity = dirPointer;
-                var ad = enemy.AddComponent<BAutoDie>();
-                ad.lifeTime = 20;
+                spawnPos.x -= 1.5f;
+                stopPos.x = spawnPos.x;
+                stopPos.y -= 0.5f;
+                enemyEntryStayLeaveParams.stopPos = stopPos;
             },
-            () => spawnPointer.x -= 1,
-            () => Wait(1),
-            () => {
-                var enemy = Instantiate(basicEnemyPrefab);
-                enemy.transform.position = transform.position + spawnPointer;
-                var rb = enemy.GetComponent<Rigidbody2D>();
-                rb.velocity = dirPointer;
-                var ad = enemy.AddComponent<BAutoDie>();
-                ad.lifeTime = 20;
-            },
-            () => spawnPointer.x -= 1,
+            () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
+            () => Loop(5),
+
+            // never
             () => Debug.Log("End"),
 
         };
+    }
+
+    void Spawn1(GameObject prefab, EnemyEntryStayLeaveParams enemyEntryStayLeaveParams)
+    {
+        var enemy = Instantiate(prefab);
+        enemy.transform.position = spawnPos;
+        var entryStayLeave = enemy.AddComponent<BEnemyEntryStayLeaveBehaviour>();
+        entryStayLeave.InitParams(enemyEntryStayLeaveParams);
     }
 
     // Update is called once per frame
@@ -130,9 +169,15 @@ public class BSpawner : MonoBehaviour
 
         while (nextIndex < spawnScript.Length && fixedTime >= nextTick)
         {
-            spawnScript[nextIndex]();
+            spawnScript[nextIndex].Invoke();
             nextIndex++;
         }
+    }
+
+    void Loop(float fixedSeconds)
+    {
+        nextIndex = 0;
+        nextTick += fixedSeconds;
     }
 
     void Wait(float fixedSeconds)
