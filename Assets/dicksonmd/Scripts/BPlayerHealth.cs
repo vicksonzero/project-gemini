@@ -9,6 +9,7 @@ public class BPlayerHealth : MonoBehaviour
     public bool isDead = false;
 
     public SpriteRenderer playerSprite;
+    public ParticleSystem deathPS;
     // Start is called before the first frame update
     void Start()
     {
@@ -50,6 +51,8 @@ public class BPlayerHealth : MonoBehaviour
         var c = playerSprite.color;
         c.a = 0.5f;
         playerSprite.color = c;
+
+        deathPS.Play();
     }
 
     public void Respawn()
