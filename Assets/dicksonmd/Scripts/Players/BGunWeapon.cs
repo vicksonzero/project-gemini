@@ -4,12 +4,18 @@ using UnityEngine;
 
 public class BGunWeapon : MonoBehaviour
 {
+    [Header("Data")]
     public BBullet bulletPrefab;
     [Tooltip("in seconds")]
     public float rapid = 0.3f;
     [Tooltip("in degrees")]
     public float spray = 0;
     public float bulletSpeed = 1;
+
+    public BGunWeapon prevLevelWeapon = null;
+    public BGunWeapon nextLevelWeapon = null;
+
+    [Header("States")]
     public float nextCanShoot = 0;
 
     BPlayer player;
@@ -34,6 +40,24 @@ public class BGunWeapon : MonoBehaviour
             Shoot();
             gunID = (gunID + 1) % guns.Length;
             nextCanShoot = Time.fixedTime + rapid;
+        }
+    }
+
+    public void TryUpgrade()
+    {
+        if (nextLevelWeapon != null)
+        {
+            Instantiate(nextLevelWeapon, player.transform);
+            Destroy(gameObject);
+        }
+    }
+
+    public void TryDowngrade()
+    {
+        if (prevLevelWeapon != null)
+        {
+            Instantiate(prevLevelWeapon, player.transform);
+            Destroy(gameObject);
         }
     }
 

@@ -5,15 +5,32 @@ using UnityEngine;
 public class BPlayer : MonoBehaviour
 {
     public Transform gemAnchor;
+
     // Start is called before the first frame update
     void Start()
     {
-        
     }
 
     // Update is called once per frame
     void Update()
     {
-        
+
+    }
+
+    public void OnGemAdded()
+    {
+        var weapons = GetComponentsInChildren<BGunWeapon>();
+        foreach (var weapon in weapons)
+        {
+            weapon.TryUpgrade();
+        }
+    }
+    public void OnGemRemoved()
+    {
+        var weapons = GetComponentsInChildren<BGunWeapon>();
+        foreach (var weapon in weapons)
+        {
+            weapon.TryDowngrade();
+        }
     }
 }

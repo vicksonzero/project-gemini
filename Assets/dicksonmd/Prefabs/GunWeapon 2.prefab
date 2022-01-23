@@ -84,6 +84,14 @@ PrefabInstance:
       value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 2161225166777502675, guid: e7f5f67b46bcf6f4cb74733ea19fc1f5, type: 3}
+      propertyPath: nextLevelWeapon
+      value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161225166777502675, guid: e7f5f67b46bcf6f4cb74733ea19fc1f5, type: 3}
+      propertyPath: prevLevelWeapon
+      value: 
+      objectReference: {fileID: 2161225166777502675, guid: e7f5f67b46bcf6f4cb74733ea19fc1f5, type: 3}
+    - target: {fileID: 2161225166777502675, guid: e7f5f67b46bcf6f4cb74733ea19fc1f5, type: 3}
       propertyPath: guns.Array.data[1]
       value: 
       objectReference: {fileID: 0}

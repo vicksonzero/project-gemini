@@ -49,6 +49,8 @@ MonoBehaviour:
   rapid: 0.2
   spray: 1
   bulletSpeed: 8
+  prevLevelWeapon: {fileID: 0}
+  nextLevelWeapon: {fileID: 5343277794052876664, guid: 2b2e24d8eaf8f9d4da6dfb6705f71663, type: 3}
   nextCanShoot: 0
   guns:
   - {fileID: 2161225166871565532}

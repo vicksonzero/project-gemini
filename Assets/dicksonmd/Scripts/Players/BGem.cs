@@ -9,8 +9,12 @@ public class BGem : MonoBehaviour
 
     public void PassToPlayer(BPlayer player)
     {
+        var oldPlayer = this.player;
         this.player = player;
         moveSpeed = (player.gemAnchor.position - transform.position).magnitude * 1.5f;
+
+        oldPlayer?.OnGemRemoved();
+        player?.OnGemAdded();
     }
 
     public void Update()
