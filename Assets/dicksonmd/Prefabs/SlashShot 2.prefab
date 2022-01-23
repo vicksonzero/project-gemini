@@ -214,6 +214,10 @@ PrefabInstance:
       propertyPath: dmg
       value: 10
       objectReference: {fileID: 0}
+    - target: {fileID: 3343201322719742756, guid: 04b2d11a3e70e3c4c95baaf61a447e1e, type: 3}
+      propertyPath: isPierce
+      value: 1
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: 04b2d11a3e70e3c4c95baaf61a447e1e, type: 3}
 --- !u!1 &6283966871515573887 stripped

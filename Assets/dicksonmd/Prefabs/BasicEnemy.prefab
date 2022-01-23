@@ -177,8 +177,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1258f21fff203584db340ff941395497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullPrefab: {fileID: 8107307491136584940, guid: 5e397e91aaaa0834c85b1f1a80fd7894, type: 3}
-  bullSpeed: 2
+  bulletPrefab: {fileID: 8107307491136584940, guid: 5e397e91aaaa0834c85b1f1a80fd7894, type: 3}
+  bulletSpeed: 2
 --- !u!1 &5219041364907929019
 GameObject:
   m_ObjectHideFlags: 0
@@ -228,6 +228,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788904ee8e5ad814d8951cc2d9aa9d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  hp: 10
+  maxHp: 10
 --- !u!58 &5219041364907929017
 CircleCollider2D:
   m_ObjectHideFlags: 0
@@ -360,8 +362,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1258f21fff203584db340ff941395497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullPrefab: {fileID: 8107307491136584940, guid: 5e397e91aaaa0834c85b1f1a80fd7894, type: 3}
-  bullSpeed: 2
+  bulletPrefab: {fileID: 8107307491136584940, guid: 5e397e91aaaa0834c85b1f1a80fd7894, type: 3}
+  bulletSpeed: 2
 --- !u!1 &5219041365863820807
 GameObject:
   m_ObjectHideFlags: 0
@@ -457,5 +459,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1258f21fff203584db340ff941395497, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  bullPrefab: {fileID: 8107307491136584940, guid: 5e397e91aaaa0834c85b1f1a80fd7894, type: 3}
-  bullSpeed: 2
+  bulletPrefab: {fileID: 8107307491136584940, guid: 5e397e91aaaa0834c85b1f1a80fd7894, type: 3}
+  bulletSpeed: 2

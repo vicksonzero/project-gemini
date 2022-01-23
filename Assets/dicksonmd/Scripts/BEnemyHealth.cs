@@ -15,6 +15,7 @@ public class BEnemyHealth : MonoBehaviour
         var bullet = collider.GetComponentInParent<BBullet>();
         if (bullet == null) return;
 
+        bullet.OnHitEnemy(collider);
         TakeDamage(bullet);
     }
 
@@ -26,13 +27,13 @@ public class BEnemyHealth : MonoBehaviour
 
         if (hp <= 0)
         {
-            KillEnemy(bullet.parentPlayer);
+            Die(bullet.parentPlayer);
         }
 
         tookDamage.Add(bullet.id);
     }
 
-    public void KillEnemy(BPlayer killerPlayer)
+    public void Die(BPlayer killerPlayer)
     {
         // killerPlayer.StopCoroutine?
         Destroy(gameObject);

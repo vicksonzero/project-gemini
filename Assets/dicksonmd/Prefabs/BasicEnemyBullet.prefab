@@ -111,7 +111,7 @@ GameObject:
   - component: {fileID: 8107307491136584941}
   - component: {fileID: 4372934041885869202}
   m_Layer: 9
-  m_Name: BasicEnemyBull
+  m_Name: BasicEnemyBullet
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0

@@ -72,6 +72,14 @@ PrefabInstance:
       value: 
       objectReference: {fileID: 7787914687159616725, guid: e0d6459ad25e0a545a2ebe8efeb912f7, type: 3}
     - target: {fileID: 2161225166777502675, guid: e7f5f67b46bcf6f4cb74733ea19fc1f5, type: 3}
+      propertyPath: bulletSpeed
+      value: 0.1
+      objectReference: {fileID: 0}
+    - target: {fileID: 2161225166777502675, guid: e7f5f67b46bcf6f4cb74733ea19fc1f5, type: 3}
+      propertyPath: bulletPrefab
+      value: 
+      objectReference: {fileID: 7787914687159616725, guid: e0d6459ad25e0a545a2ebe8efeb912f7, type: 3}
+    - target: {fileID: 2161225166777502675, guid: e7f5f67b46bcf6f4cb74733ea19fc1f5, type: 3}
       propertyPath: guns.Array.size
       value: 2
       objectReference: {fileID: 0}

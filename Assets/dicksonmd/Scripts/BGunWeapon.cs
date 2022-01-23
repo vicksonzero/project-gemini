@@ -4,12 +4,12 @@ using UnityEngine;
 
 public class BGunWeapon : MonoBehaviour
 {
-    public BBullet bullPrefab;
+    public BBullet bulletPrefab;
     [Tooltip("in seconds")]
     public float rapid = 0.3f;
     [Tooltip("in degrees")]
     public float spray = 0;
-    public float bullSpeed = 1;
+    public float bulletSpeed = 1;
     public float nextCanShoot = 0;
 
     BPlayer player;
@@ -40,21 +40,21 @@ public class BGunWeapon : MonoBehaviour
     void Shoot()
     {
         var gun = guns[gunID];
-        var bull = Instantiate(bullPrefab, gun.position, Quaternion.identity);
-        bull.transform.position += Vector3.forward;
-        var bullRb = bull.GetComponent<Rigidbody2D>();
+        var bullet = Instantiate(bulletPrefab, gun.position, Quaternion.identity);
+        bullet.transform.position += Vector3.forward;
+        var bulletRb = bullet.GetComponent<Rigidbody2D>();
         var degrees = Random.Range(-spray, spray);
         var dir = Quaternion.Euler(0, 0, degrees) * gun.transform.up;
-        bullRb.velocity = dir * bullSpeed;
-        bull.transform.rotation = Quaternion.AngleAxis(degrees, Vector3.forward);
+        bulletRb.velocity = dir * bulletSpeed;
+        bullet.transform.rotation = Quaternion.AngleAxis(degrees, Vector3.forward);
         if (gun.localPosition.x < 0)
         {
-            bull.transform.localScale = new Vector3(-1, 1, 1);
+            bullet.transform.localScale = new Vector3(-1, 1, 1);
         }
-        bull.parentPlayer = player;
-        if (bull.GetComponent<BMeleeBullet>())
+        bullet.parentPlayer = player;
+        if (bullet.GetComponent<BMeleeBullet>())
         {
-            bull.transform.SetParent(gun);
+            bullet.transform.SetParent(gun);
         }
     }
 }
