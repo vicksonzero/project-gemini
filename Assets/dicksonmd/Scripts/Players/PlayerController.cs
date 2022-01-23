@@ -38,12 +38,5 @@ public class PlayerController : MonoBehaviour
         transform.Translate(moveInput *moveSpeed);
 
         // Debug.Log(move);
-        float transfer = playerControls.Basic.PassGem.ReadValue<float>();
-
-        // Debug.Log(transfer);
-        if (playerControls.Basic.PassGem.triggered)
-        {
-            Debug.Log("transfer");
-        }
     }
 }

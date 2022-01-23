@@ -4,6 +4,7 @@ using UnityEngine;
 
 public class BPlayer : MonoBehaviour
 {
+    public Transform gemAnchor;
     // Start is called before the first frame update
     void Start()
     {
