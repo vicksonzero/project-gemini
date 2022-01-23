@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class BPlayerHealth : MonoBehaviour
 {
+    public float respawnLength = 10;
+    public float respawnAt = 0;
+    public bool isDead = false;
+
+    public SpriteRenderer playerSprite;
     // Start is called before the first frame update
     void Start()
     {
@@ -11,9 +16,12 @@ public class BPlayerHealth : MonoBehaviour
     }
 
     // Update is called once per frame
-    void Update()
+    void FixedUpdate()
     {
-
+        if (isDead && Time.fixedTime >= respawnAt)
+        {
+            Respawn();
+        }
     }
 
     public void OnTriggerEnter2D(Collider2D collider)
@@ -26,7 +34,34 @@ public class BPlayerHealth : MonoBehaviour
 
     public void TakeDamage(BEnemyBullet bullet)
     {
-
+        if (isDead) return;
+        Die();
     }
 
+    public void Die()
+    {
+        respawnAt = Time.fixedTime + respawnLength;
+        isDead = true;
+        var guns = GetComponentsInChildren<BGunWeapon>(true);
+        foreach (var gun in guns)
+        {
+            gun.gameObject.SetActive(false);
+        }
+        var c = playerSprite.color;
+        c.a = 0.5f;
+        playerSprite.color = c;
+    }
+
+    public void Respawn()
+    {
+        isDead = false;
+        var guns = GetComponentsInChildren<BGunWeapon>(true);
+        foreach (var gun in guns)
+        {
+            gun.gameObject.SetActive(true);
+        }
+        var c = playerSprite.color;
+        c.a = 1;
+        playerSprite.color = c;
+    }
 }
