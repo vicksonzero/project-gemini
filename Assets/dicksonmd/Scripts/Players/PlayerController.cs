@@ -7,35 +7,23 @@ public class PlayerController : MonoBehaviour
 {
     public bool isPlayer1 = true;
     public float moveSpeed = 0.1f;
-    private PlayerControls playerControls;
+    private PlayerInput playerInput;
 
-    private void Awake()
-    {
-        playerControls = new PlayerControls();
-    }
-    private void OnEnable()
-    {
-        playerControls.Enable();
-    }
-
-    private void OnDisable()
-    {
-        playerControls.Disable();
-    }
 
     protected InputAction GetInputAction()
     {
-        return isPlayer1 ? playerControls.Basic.Player1Move : playerControls.Basic.Player2Move;
+        return isPlayer1 ? playerInput.actions["Player1Move"] : playerInput.actions["Player2Move"];
     }
 
     void Start()
     {
+        playerInput = FindObjectOfType<PlayerInput>();
     }
 
     void FixedUpdate()
     {
         Vector2 moveInput = GetInputAction().ReadValue<Vector2>();
-        transform.Translate(moveInput *moveSpeed);
+        transform.Translate(moveInput * moveSpeed);
 
         // Debug.Log(move);
     }

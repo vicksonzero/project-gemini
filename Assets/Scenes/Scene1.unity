@@ -6261,6 +6261,7 @@ GameObject:
   - component: {fileID: 963174245}
   - component: {fileID: 963174246}
   - component: {fileID: 963174247}
+  - component: {fileID: 963174248}
   m_Layer: 0
   m_Name: GameMaster
   m_TagString: Untagged
@@ -6315,6 +6316,36 @@ MonoBehaviour:
   gem: {fileID: 2012877700}
   player1: {fileID: 1446769818}
   player2: {fileID: 1335127931}
+--- !u!114 &963174248
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 963174244}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  m_Actions: {fileID: -944628639613478452, guid: 1f7e006676c4f544ba3d2cce34c83743, type: 3}
+  m_NotificationBehavior: 0
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents: []
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Basic
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 0}
 --- !u!1 &984057059
 GameObject:
   m_ObjectHideFlags: 0
@@ -6756,7 +6787,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!114 &1320311381
 MonoBehaviour:
   m_ObjectHideFlags: 0

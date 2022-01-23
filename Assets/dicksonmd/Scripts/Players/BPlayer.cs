@@ -19,7 +19,7 @@ public class BPlayer : MonoBehaviour
 
     public void OnGemAdded()
     {
-        var weapons = GetComponentsInChildren<BGunWeapon>();
+        var weapons = GetComponentsInChildren<BGunWeapon>(true);
         foreach (var weapon in weapons)
         {
             weapon.TryUpgrade();
@@ -27,7 +27,7 @@ public class BPlayer : MonoBehaviour
     }
     public void OnGemRemoved()
     {
-        var weapons = GetComponentsInChildren<BGunWeapon>();
+        var weapons = GetComponentsInChildren<BGunWeapon>(true);
         foreach (var weapon in weapons)
         {
             weapon.TryDowngrade();

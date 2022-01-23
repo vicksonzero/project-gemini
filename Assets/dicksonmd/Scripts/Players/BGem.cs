@@ -29,7 +29,7 @@ public class BGem : MonoBehaviour
             }
             else
             {
-                transform.position += disp.normalized * moveSpeed * Time.fixedDeltaTime;
+                transform.position += disp.normalized * moveSpeed * Time.deltaTime;
             }
         }
     }

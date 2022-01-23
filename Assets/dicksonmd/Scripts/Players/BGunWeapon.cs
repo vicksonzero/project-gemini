@@ -47,7 +47,8 @@ public class BGunWeapon : MonoBehaviour
     {
         if (nextLevelWeapon != null)
         {
-            Instantiate(nextLevelWeapon, player.transform);
+            var newWeapon = Instantiate(nextLevelWeapon, player.transform);
+            newWeapon.gameObject.SetActive(gameObject.activeSelf);
             Destroy(gameObject);
         }
     }
@@ -56,7 +57,8 @@ public class BGunWeapon : MonoBehaviour
     {
         if (prevLevelWeapon != null)
         {
-            Instantiate(prevLevelWeapon, player.transform);
+            var newWeapon = Instantiate(prevLevelWeapon, player.transform);
+            newWeapon.gameObject.SetActive(gameObject.activeSelf);
             Destroy(gameObject);
         }
     }

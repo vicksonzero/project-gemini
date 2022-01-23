@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.InputSystem;
 
 public class BPassGem : MonoBehaviour
 {
@@ -8,33 +9,20 @@ public class BPassGem : MonoBehaviour
 
     public BPlayer player1;
     public BPlayer player2;
-    private PlayerControls playerControls;
+    private PlayerInput playerInput;
 
-    private void Awake()
-    {
-        playerControls = new PlayerControls();
-    }
-    private void OnEnable()
-    {
-        playerControls.Enable();
-    }
-
-    private void OnDisable()
-    {
-        playerControls.Disable();
-    }
 
 
     // Start is called before the first frame update
     void Start()
     {
-
+        playerInput = GetComponent<PlayerInput>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (playerControls.Basic.PassGem.triggered)
+        if (playerInput.actions["PassGem"].triggered)
         {
             // Debug.Log("transfer");
             gem.PassToPlayer(gem.player == player2 ? player1 : player2);
