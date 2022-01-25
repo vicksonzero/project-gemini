@@ -99,6 +99,10 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 22f7d735d9a206546a75c33704ce2186, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  onHitEffect: {fileID: 4741411906271600964, guid: b26bf369a2119f04d897491655945935, type: 3}
+  onEraseEffect: {fileID: 1268585528190502044, guid: c7e5373ef4c2aa94c8426f8dc8c9d7e8, type: 3}
+  isPierce: 0
+  id: 0
   parentPlayer: {fileID: 0}
   dmg: 3
 --- !u!114 &2912602004933107980

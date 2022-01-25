@@ -4,6 +4,8 @@ using UnityEngine;
 
 public class BBullet : MonoBehaviour
 {
+    public GameObject onHitEffect;
+    public GameObject onEraseEffect;
     public bool isPierce = false;
     public static int nextId = 0;
 
@@ -24,6 +26,8 @@ public class BBullet : MonoBehaviour
 
     public void OnHitEnemy(Collider2D collider)
     {
+        Instantiate(onHitEffect, collider.ClosestPoint(transform.position), Quaternion.identity);
+
         // create effect at collider.ClosestPoint
         if (isPierce)
         {
@@ -34,4 +38,5 @@ public class BBullet : MonoBehaviour
             Destroy(gameObject);
         }
     }
+
 }

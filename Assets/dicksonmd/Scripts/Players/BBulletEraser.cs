@@ -4,15 +4,12 @@ using UnityEngine;
 
 public class BBulletEraser : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    
+    public void OnTriggerEnter2D(Collider2D collider)
     {
-        
-    }
+        var bullet = collider.GetComponentInParent<BEnemyBullet>();
+        if (bullet == null) return;
 
-    // Update is called once per frame
-    void Update()
-    {
-        
+        bullet.OnHitEraser(collider);
     }
 }

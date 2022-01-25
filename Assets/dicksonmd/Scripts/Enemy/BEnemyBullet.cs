@@ -4,15 +4,11 @@ using UnityEngine;
 
 public class BEnemyBullet : MonoBehaviour
 {
-    // Start is called before the first frame update
-    void Start()
+    public GameObject onHitEffect;
+    public GameObject onEraseEffect;
+    public void OnHitEraser(Collider2D collider)
     {
-        
-    }
-
-    // Update is called once per frame
-    void Update()
-    {
-        
+        Instantiate(onEraseEffect, transform.position, Quaternion.identity);
+        Destroy(gameObject);
     }
 }
