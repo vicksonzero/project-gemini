@@ -189,6 +189,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8107307491136584940}
   - component: {fileID: 5795252189695662389}
+  - component: {fileID: 8526917484095548767}
   - component: {fileID: 2346893039581120671}
   - component: {fileID: 6668485941321406587}
   - component: {fileID: 8107307491136584941}
@@ -228,9 +229,21 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   onHitEffect: {fileID: 4741411906271600964, guid: b26bf369a2119f04d897491655945935, type: 3}
-  onEraseEffect: {fileID: 1268585528190502044, guid: c7e5373ef4c2aa94c8426f8dc8c9d7e8, type: 3}
   isPierce: 0
   bulletId: 0
+--- !u!114 &8526917484095548767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8107307491136584930}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 12cfb00a7095ba1458d1545011f175c4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  onEraseEffect: {fileID: 1268585528190502044, guid: c7e5373ef4c2aa94c8426f8dc8c9d7e8, type: 3}
 --- !u!114 &2346893039581120671
 MonoBehaviour:
   m_ObjectHideFlags: 0

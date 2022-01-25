@@ -57,7 +57,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 2161225166777502675, guid: e7f5f67b46bcf6f4cb74733ea19fc1f5, type: 3}
       propertyPath: rapid
-      value: 0.8
+      value: 0.6
       objectReference: {fileID: 0}
     - target: {fileID: 2161225166777502675, guid: e7f5f67b46bcf6f4cb74733ea19fc1f5, type: 3}
       propertyPath: spray

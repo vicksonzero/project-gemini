@@ -250,6 +250,9 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   hp: 14
   maxHp: 14
+  hitScore: 100
+  deathScore: 1000
+  deathEffect: {fileID: 8631913612874881224, guid: 623d51aa9acb2fd488bcb47bc292f015, type: 3}
 --- !u!58 &5219041364907929017
 CircleCollider2D:
   m_ObjectHideFlags: 0
