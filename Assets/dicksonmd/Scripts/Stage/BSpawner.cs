@@ -179,7 +179,7 @@ public class BSpawner : MonoBehaviour
                 enemyEntryStayLeaveParams.stopPos = stopPos;
             },
             () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
-            () => Wait(8),
+            () => Wait(6),
 
 
             () => Debug.Log("Wave 3L"),
@@ -212,6 +212,7 @@ public class BSpawner : MonoBehaviour
                 enemyEntryStayLeaveParams.stopPos = stopPos;
             },
             () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
+            () => Wait(6),
 
 
             () => Debug.Log("Wave 3R"),
@@ -244,7 +245,7 @@ public class BSpawner : MonoBehaviour
                 enemyEntryStayLeaveParams.stopPos = stopPos;
             },
             () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
-            () => Loop(5),
+            () => Loop(7),
 
             // never
             () => Debug.Log("End"),
