@@ -112,7 +112,7 @@ public class BSpawner : MonoBehaviour
             () => Spawn2(flockEnemyPrefab, enemyRunStraightParams),
             () => Wait(0.8f),
             () => Spawn2(flockEnemyPrefab, enemyRunStraightParams),
-            () => Wait(5),
+            () => Wait(4),
 
             () => Debug.Log("Wave 2R"),
 
@@ -145,7 +145,7 @@ public class BSpawner : MonoBehaviour
                 enemyEntryStayLeaveParams.stopPos = stopPos;
             },
             () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
-            () => Wait(6),
+            () => Wait(4),
 
 
 
@@ -179,7 +179,7 @@ public class BSpawner : MonoBehaviour
                 enemyEntryStayLeaveParams.stopPos = stopPos;
             },
             () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
-            () => Wait(6),
+            () => Wait(4),
 
 
             () => Debug.Log("Wave 3L"),
@@ -212,7 +212,7 @@ public class BSpawner : MonoBehaviour
                 enemyEntryStayLeaveParams.stopPos = stopPos;
             },
             () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
-            () => Wait(6),
+            () => Wait(4),
 
 
             () => Debug.Log("Wave 3R"),
@@ -245,7 +245,7 @@ public class BSpawner : MonoBehaviour
                 enemyEntryStayLeaveParams.stopPos = stopPos;
             },
             () => Spawn1(basicEnemyPrefab, enemyEntryStayLeaveParams),
-            () => Loop(7),
+            () => Loop(5),
 
             // never
             () => Debug.Log("End"),
