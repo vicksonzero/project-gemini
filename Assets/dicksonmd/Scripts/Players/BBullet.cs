@@ -4,18 +4,18 @@ using UnityEngine;
 
 public class BBullet : MonoBehaviour
 {
+    public static int nextId = 0;
     public GameObject onHitEffect;
     public GameObject onEraseEffect;
     public bool isPierce = false;
-    public static int nextId = 0;
 
-    public int id = 0;
+    public int bulletId = 0;
     public BPlayer parentPlayer;
     public float dmg = 1;
     // Start is called before the first frame update
     void Start()
     {
-        id = ++nextId;
+        bulletId = ++nextId;
     }
 
     // Update is called once per frame

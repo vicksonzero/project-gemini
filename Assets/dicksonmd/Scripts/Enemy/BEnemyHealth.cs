@@ -21,7 +21,7 @@ public class BEnemyHealth : MonoBehaviour
 
     public void TakeDamage(BBullet bullet)
     {
-        if (tookDamage.Contains(bullet.id)) return;
+        if (tookDamage.Contains(bullet.bulletId)) return;
 
         hp -= bullet.dmg;
 
@@ -30,7 +30,7 @@ public class BEnemyHealth : MonoBehaviour
             Die(bullet.parentPlayer);
         }
 
-        tookDamage.Add(bullet.id);
+        tookDamage.Add(bullet.bulletId);
     }
 
     public void Die(BPlayer killerPlayer)
