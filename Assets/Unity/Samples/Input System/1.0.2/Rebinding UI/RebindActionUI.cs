@@ -293,8 +293,9 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                             PerformInteractiveRebind(action, bindingIndex, allCompositeParts, true);
                             return;
                         }
+                        var newBinding = action.bindings[bindingIndex];
 
-
+                        Debug.Log($"Binding {newBinding.name} to: {newBinding.effectivePath}");
                         UpdateBindingDisplay();
                         CleanUp();
 
@@ -309,12 +310,12 @@ namespace UnityEngine.InputSystem.Samples.RebindUI
                     });
             foreach (var item in m_ControlsExcluding)
             {
-                Debug.Log($"WithControlsExcluding: {item}");
+                // Debug.Log($"WithControlsExcluding: {item}");
                 m_RebindOperation.WithControlsExcluding(item);
             }
             if (!string.IsNullOrEmpty(m_CancellingThrough))
             {
-                Debug.Log($"WithCancelingThrough: {m_CancellingThrough}");
+                // Debug.Log($"WithCancelingThrough: {m_CancellingThrough}");
                 m_RebindOperation.WithCancelingThrough(m_CancellingThrough);
             }
 

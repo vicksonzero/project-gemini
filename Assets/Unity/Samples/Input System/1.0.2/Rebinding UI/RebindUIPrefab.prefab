@@ -353,6 +353,7 @@ MonoBehaviour:
   - <Mouse>/press
   - <Pointer>/position
   - <Keyboard>/escape
+  - <Keyboard>/printScreen
   m_CancellingThrough: <Keyboard>/escape
   m_ActionLabel: {fileID: 6680292650847612335}
   m_BindingText: {fileID: 690190895482579582}
