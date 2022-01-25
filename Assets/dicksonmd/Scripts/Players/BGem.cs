@@ -7,6 +7,11 @@ public class BGem : MonoBehaviour
     public BPlayer player;
     public float moveSpeed = 3;
 
+    public void Start()
+    {
+        if (player != null) player.OnGemAdded();
+    }
+
     public void PassToPlayer(BPlayer player)
     {
         var oldPlayer = this.player;
