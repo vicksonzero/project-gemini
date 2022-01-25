@@ -24,9 +24,17 @@ public class BBullet : MonoBehaviour
 
     }
 
-    public void OnHitEnemy(Collider2D collider)
+    public void OnHitEnemy(Collider2D other)
     {
-        Instantiate(onHitEffect, collider.ClosestPoint(transform.position), Quaternion.identity);
+        
+        // var colliders = GetComponentsInChildren<Collider2D>();
+        // var collestPoints = colliders.Select(c => c.ClosestPoint(other.transform.position));
+        // var minDist = collestPoints
+        //     .Select(p => (other.transform.position - new Vector3(p.x, p.y, 0)).magnitude)
+        //     .Aggregate(float.PositiveInfinity, (acc, d) => Mathf.Min(acc, d));
+        // var collestPoint = collestPoints.First(p => (other.transform.position - new Vector3(p.x, p.y, 0)).magnitude == minDist);
+        // Instantiate(onHitEffect, collestPoint, Quaternion.identity);
+        Instantiate(onHitEffect, other.ClosestPoint(transform.position), Quaternion.identity);
 
         // create effect at collider.ClosestPoint
         if (isPierce)

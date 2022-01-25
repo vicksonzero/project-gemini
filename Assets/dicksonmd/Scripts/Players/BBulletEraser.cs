@@ -10,6 +10,6 @@ public class BBulletEraser : MonoBehaviour
         var bullet = collider.GetComponentInParent<BEnemyBullet>();
         if (bullet == null) return;
 
-        bullet.OnHitEraser(collider);
+        bullet.OnHitEraser(GetComponent<Collider2D>());
     }
 }

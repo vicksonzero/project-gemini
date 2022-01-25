@@ -15,7 +15,7 @@ public class BEnemyHealth : MonoBehaviour
         var bullet = collider.GetComponentInParent<BBullet>();
         if (bullet == null) return;
 
-        bullet.OnHitEnemy(collider);
+        bullet.OnHitEnemy(GetComponent<Collider2D>());
         TakeDamage(bullet);
     }
 

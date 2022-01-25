@@ -27,6 +27,7 @@ public class BPlayerHealth : MonoBehaviour
 
     public void OnTriggerEnter2D(Collider2D collider)
     {
+        if (!enabled) return;
         var bullet = collider.GetComponentInParent<BEnemyBullet>();
         if (bullet == null) return;
 
