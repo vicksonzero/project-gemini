@@ -5,6 +5,8 @@ using UnityEngine;
 
 public class BSpawnWave : MonoBehaviour
 {
+    public bool isBoss = false;
+
     public bool mirrored = false;
     public BSpawnTick[] spawnTicks;
 

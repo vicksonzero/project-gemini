@@ -8,9 +8,10 @@ public class BSpawner : MonoBehaviour
 {
     // [Header("Prefabs")]
     public BSpawnWave[] waves;
+    public BFlyAwayToVictory flyAwayToVictory;
 
     [Header("States")]
-    public int nextIndex;
+    public int waveIndex;
     public float fixedTime;
     public float nextTick;
 
@@ -29,28 +30,45 @@ public class BSpawner : MonoBehaviour
         {
             waveObj.gameObject.SetActive(false);
         }
+
+        if (flyAwayToVictory == null) flyAwayToVictory = GetComponent<BFlyAwayToVictory>();
+        flyAwayToVictory.enabled = false;
     }
 
     void Start()
     {
-        nextIndex = 0;
-        nextTick += waves[nextIndex].GetWaveLength();
-        waves[nextIndex].gameObject.SetActive(true);
+        waveIndex = 0;
+        nextTick += waves[waveIndex].GetWaveLength();
+        waves[waveIndex].gameObject.SetActive(true);
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
         fixedTime = Time.fixedTime;
-        while (nextIndex < waves.Length && fixedTime >= nextTick)
+
+        var waitingForBoss = waveIndex >= waves.Length ? false
+            : (waves[waveIndex].isBoss && waves[waveIndex].GetComponentsInChildren<BEnemyAI>().Length > 0);
+        if (waitingForBoss)
+        {
+            nextTick = fixedTime + waves[waveIndex].GetWaveLength();
+        }
+        while (waveIndex < waves.Length && fixedTime >= nextTick)
         {
             // // cannot deactivate, coz we have bg and still alive enemies
             // waves[nextIndex].gameObject.SetActive(false);
-            nextIndex++;
+            waveIndex++;
 
             // waves[nextIndex].Invoke();
-            nextTick += waves[nextIndex].GetWaveLength();
-            waves[nextIndex].gameObject.SetActive(true);
+            if (waveIndex < waves.Length)
+            {
+                nextTick += waves[waveIndex].GetWaveLength();
+                waves[waveIndex].gameObject.SetActive(true);
+            }
+            else
+            {
+                flyAwayToVictory.enabled = true;
+            }
         }
     }
 
