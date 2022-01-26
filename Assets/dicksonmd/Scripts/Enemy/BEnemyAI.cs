@@ -1,5 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
+using System;
+using System.Linq;
 using UnityEditor;
 using UnityEngine;
 
@@ -21,14 +23,28 @@ public class BEnemyAI : MonoBehaviour
 
     public int gunID = 0;
     public float nextCanShoot = 0;
+    public Vector3 startingPosition;
+    public Vector3 startingMoveDir;
+
+    void OnValidate()
+    {
+        actions = GetComponents<VEnemyAIAction>();
+        Array.Sort(actions, (a, b) => (a.actionId - b.actionId));
+    }
     void Awake()
     {
         actions = GetComponents<VEnemyAIAction>();
+        Array.Sort(actions, (a, b) => (a.actionId - b.actionId));
         foreach (var action in actions)
         {
             action.OnRegisterAction();
-            action.enabled = false;
         }
+        for (var i = actions.Length - 1; i >= 0; --i)
+        {
+            actions[i].enabled = false;
+        }
+        startingPosition = transform.position;
+        startingMoveDir = moveDir;
     }
 
     void Start()
@@ -57,7 +73,7 @@ public class BEnemyAI : MonoBehaviour
 
     public void DoShoot()
     {
-        if (Time.fixedTime >= nextCanShoot)
+        if (guns.Length > 0 && Time.fixedTime >= nextCanShoot)
         {
             ShootAllGuns();
             gunID = (gunID + 1) % guns.Length;
@@ -113,13 +129,31 @@ public class BEnemyAI : MonoBehaviour
         var _actions = GetComponents<VEnemyAIAction>();
         var _waypoint = transform.position;
         var _moveDir = moveDir;
+
+        if (Application.isPlaying)
+        {
+            _waypoint = startingPosition;
+            _moveDir = startingMoveDir;
+        }
+
         for (int i = 0; i < _actions.Length; i++)
         {
             var action = _actions[i];
 #if UNITY_EDITOR
-            Handles.Label(transform.position, action.GetType().ToString());
+            Handles.Label(_waypoint, action.GetType().ToString());
 #endif
             action.DrawGizmo(ref _waypoint, ref _moveDir);
+        }
+    }
+
+    public void MirrorValues()
+    {
+        moveDir.x = -moveDir.x;
+
+        var _actions = GetComponents<VEnemyAIAction>();
+        foreach (var action in _actions)
+        {
+            action.MirrorValues();
         }
     }
 

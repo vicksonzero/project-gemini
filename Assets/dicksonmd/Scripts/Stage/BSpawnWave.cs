@@ -26,11 +26,20 @@ public class BSpawnWave : MonoBehaviour
         {
             spawnTicks[i].tickId = i;
         }
+
+        if (mirrored)
+        {
+            foreach (var tickObj in spawnTicks)
+            {
+                tickObj.ApplyMirror();
+            }
+            mirrored = false;
+        }
     }
 
     void Awake()
     {
-        Debug.Log("BSpawnWave Awake()");
+        Debug.Log($"{nameof(BSpawnWave)} {name} Awake()");
         spawnTicks = GetComponents<BSpawnTick>();
         foreach (var tickObj in spawnTicks)
         {

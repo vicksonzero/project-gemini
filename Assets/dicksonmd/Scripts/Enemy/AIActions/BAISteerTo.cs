@@ -32,7 +32,12 @@ public class BAISteerTo : VEnemyAIAction
     public override void DrawGizmo(ref Vector3 oldWaypoint, ref Vector3 oldMoveDir)
     {
         var _waypoint = waypoint + (relative ? transform.position : Vector3.zero);
-        
+
+        if (Application.isPlaying)
+        {
+            _waypoint = waypoint;
+        }
+
         Gizmos.color = Color.blue;
         Gizmos.DrawLine(oldWaypoint, oldWaypoint + oldMoveDir);
         Gizmos.color = Color.green;
@@ -41,4 +46,9 @@ public class BAISteerTo : VEnemyAIAction
         oldMoveDir = waypoint - oldWaypoint;
         oldWaypoint = _waypoint;
     }
+    public override void MirrorValues()
+    {
+        waypoint.x = -waypoint.x;
+    }
+
 }

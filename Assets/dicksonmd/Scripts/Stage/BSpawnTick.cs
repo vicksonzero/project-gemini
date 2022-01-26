@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 
 [RequireComponent(typeof(BSpawnWave))]
@@ -32,6 +33,17 @@ public class BSpawnTick : MonoBehaviour
         if (waitTime <= 0)
         {
             Debug.LogError($"{name}.BSpawnTick: waitTime cannot be <=0");
+        }
+    }
+
+    public void ApplyMirror()
+    {
+        foreach (var obj in objects)
+        {
+            var pos = obj.transform.position;
+            pos.x = -pos.x;
+            obj.transform.position = pos;
+            obj.GetComponent<BEnemyAI>().MirrorValues();
         }
     }
 }
