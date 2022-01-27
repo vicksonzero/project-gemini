@@ -19,6 +19,7 @@ public class BFlyAwayToVictory : MonoBehaviour
         waitUntil = Time.fixedTime + delay;
         TurnOffPlayer(player1);
         TurnOffPlayer(player2);
+        TurnOffWingmans();
     }
 
     // Update is called once per frame
@@ -31,6 +32,16 @@ public class BFlyAwayToVictory : MonoBehaviour
         }
     }
 
+    void TurnOffWingmans()
+    {
+        foreach (var wingman in FindObjectsOfType<BGemWingman>())
+        {
+            foreach (var gun in wingman.GetComponentsInChildren<BGunWeapon>(true))
+            {
+                gun.enabled = false;
+            }
+        }
+    }
     void TurnOffPlayer(BPlayer player)
     {
         player.GetComponent<PlayerController>().enabled = false;

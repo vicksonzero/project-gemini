@@ -46,6 +46,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gem: {fileID: 0}
+  moveSpeed: 0.9
+  target: {fileID: 0}
 --- !u!1 &1169379848964786717
 GameObject:
   m_ObjectHideFlags: 0
@@ -56,6 +58,7 @@ GameObject:
   m_Component:
   - component: {fileID: 1169379848964786716}
   - component: {fileID: 1169379848964786787}
+  - component: {fileID: 3755672749406839143}
   m_Layer: 0
   m_Name: Sprite
   m_TagString: Untagged
@@ -128,6 +131,25 @@ SpriteRenderer:
   m_WasSpriteAssigned: 1
   m_MaskInteraction: 0
   m_SpriteSortPoint: 0
+--- !u!95 &3755672749406839143
+Animator:
+  serializedVersion: 3
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1169379848964786717}
+  m_Enabled: 1
+  m_Avatar: {fileID: 0}
+  m_Controller: {fileID: 9100000, guid: 09e7041ca8fd3154c80d48d2d133d583, type: 2}
+  m_CullingMode: 0
+  m_UpdateMode: 0
+  m_ApplyRootMotion: 0
+  m_LinearVelocityBlending: 0
+  m_WarningMessage: 
+  m_HasTransformHierarchy: 1
+  m_AllowConstantClipSamplingOptimization: 1
+  m_KeepAnimatorControllerStateOnDisable: 0
 --- !u!1001 &8556782942471261722
 PrefabInstance:
   m_ObjectHideFlags: 0
