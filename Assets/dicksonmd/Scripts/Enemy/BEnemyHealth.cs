@@ -42,8 +42,11 @@ public class BEnemyHealth : MonoBehaviour
     public void Die(BPlayer killerPlayer)
     {
         // killerPlayer.StopCoroutine?
-        Destroy(gameObject);
         Instantiate(deathEffect, transform.position, Quaternion.identity);
         killerPlayer.GetComponent<BPlayerScore>().AddScore(deathScore, true);
+
+        GetComponent<BGemBitHolder>().ReleaseBits();
+
+        Destroy(gameObject);
     }
 }

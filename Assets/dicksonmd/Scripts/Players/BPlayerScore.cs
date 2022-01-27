@@ -1,3 +1,4 @@
+using System;
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
@@ -14,7 +15,7 @@ public class BPlayerScore : MonoBehaviour
     }
     void UpdateLabel()
     {
-        scoreLabel.text = $"{score}";
+        scoreLabel.text = String.Format("{0:n0}", score);
     }
 
     public void AddScore(int amount, bool doMultiplier)

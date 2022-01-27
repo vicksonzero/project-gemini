@@ -10,10 +10,12 @@ public class BPlayerHealth : MonoBehaviour
 
     public SpriteRenderer playerSprite;
     public ParticleSystem deathPS;
+
+    BPassGem passGem;
     // Start is called before the first frame update
     void Start()
     {
-
+        passGem = FindObjectOfType<BPassGem>();
     }
 
     // Update is called once per frame
@@ -44,6 +46,12 @@ public class BPlayerHealth : MonoBehaviour
     {
         respawnAt = Time.fixedTime + respawnLength;
         isDead = true;
+
+        if (passGem.gem.player == GetComponent<BPlayer>())
+        {
+            passGem.PassGem();
+        }
+
         var guns = GetComponentsInChildren<BGunWeapon>(true);
         foreach (var gun in guns)
         {

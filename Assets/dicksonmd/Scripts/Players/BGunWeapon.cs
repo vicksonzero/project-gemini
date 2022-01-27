@@ -18,7 +18,7 @@ public class BGunWeapon : MonoBehaviour
     [Header("States")]
     public float nextCanShoot = 0;
 
-    BPlayer player;
+    public BPlayer player;
 
     public Transform[] guns;
 
@@ -27,17 +27,16 @@ public class BGunWeapon : MonoBehaviour
     void Start()
     {
         nextCanShoot = Time.fixedTime;
-        player = GetComponentInParent<BPlayer>();
-
-        if (player == null) enabled = false;
+        if (player == null) player = GetComponentInParent<BPlayer>();
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (player == null) return;
         if (Time.fixedTime >= nextCanShoot)
         {
-            Shoot();
+            Shoot(player);
             gunID = (gunID + 1) % guns.Length;
             nextCanShoot = Time.fixedTime + rapid;
         }
@@ -47,7 +46,7 @@ public class BGunWeapon : MonoBehaviour
     {
         if (nextLevelWeapon != null)
         {
-            var newWeapon = Instantiate(nextLevelWeapon, player.transform);
+            var newWeapon = Instantiate(nextLevelWeapon, transform.parent);
             newWeapon.gameObject.SetActive(gameObject.activeSelf);
             Destroy(gameObject);
         }
@@ -57,13 +56,13 @@ public class BGunWeapon : MonoBehaviour
     {
         if (prevLevelWeapon != null)
         {
-            var newWeapon = Instantiate(prevLevelWeapon, player.transform);
+            var newWeapon = Instantiate(prevLevelWeapon, transform.parent);
             newWeapon.gameObject.SetActive(gameObject.activeSelf);
             Destroy(gameObject);
         }
     }
 
-    void Shoot()
+    void Shoot(BPlayer scorePlayer)
     {
         var gun = guns[gunID];
         var bullet = Instantiate(bulletPrefab, gun.position, Quaternion.identity);
@@ -77,7 +76,7 @@ public class BGunWeapon : MonoBehaviour
         {
             bullet.transform.localScale = new Vector3(-1, 1, 1);
         }
-        bullet.parentPlayer = player;
+        bullet.parentPlayer = scorePlayer;
         if (bullet.GetComponent<BMeleeBullet>())
         {
             bullet.transform.SetParent(gun);

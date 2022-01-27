@@ -23,7 +23,7 @@ public class PlayerController : MonoBehaviour
     void FixedUpdate()
     {
         Vector2 moveInput = GetInputAction().ReadValue<Vector2>();
-        transform.Translate(moveInput * moveSpeed);
+        transform.Translate(moveInput * moveSpeed * Time.fixedDeltaTime);
 
         // Debug.Log(move);
     }
