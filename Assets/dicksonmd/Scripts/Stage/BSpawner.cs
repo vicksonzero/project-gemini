@@ -45,7 +45,7 @@ public class BSpawner : MonoBehaviour
     // Update is called once per frame
     void FixedUpdate()
     {
-        fixedTime = Time.fixedTime;
+        fixedTime += Time.fixedDeltaTime;
 
         var waitingForBoss = waveIndex >= waves.Length ? false
             : (waves[waveIndex].isBoss && waves[waveIndex].GetComponentsInChildren<BEnemyAI>().Length > 0);
