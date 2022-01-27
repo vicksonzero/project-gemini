@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.UI;
 
 public class BPlayerHealth : MonoBehaviour
 {
@@ -9,6 +10,7 @@ public class BPlayerHealth : MonoBehaviour
     public bool isDead = false;
 
     public SpriteRenderer playerSprite;
+    public Text deathCountdownLabel;
     public ParticleSystem deathPS;
 
     BPassGem passGem;
@@ -16,13 +18,19 @@ public class BPlayerHealth : MonoBehaviour
     void Start()
     {
         passGem = FindObjectOfType<BPassGem>();
+            deathCountdownLabel.enabled = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
+        if (isDead)
+        {
+            deathCountdownLabel.text = "" + (int)(respawnAt - Time.fixedTime);
+        }
         if (isDead && Time.fixedTime >= respawnAt)
         {
+            deathCountdownLabel.enabled = false;
             Respawn();
         }
     }
@@ -46,6 +54,7 @@ public class BPlayerHealth : MonoBehaviour
     {
         respawnAt = Time.fixedTime + respawnLength;
         isDead = true;
+        deathCountdownLabel.enabled = true;
 
         if (passGem.gem.player == GetComponent<BPlayer>())
         {
