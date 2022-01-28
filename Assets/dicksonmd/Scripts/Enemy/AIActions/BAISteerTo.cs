@@ -43,7 +43,7 @@ public class BAISteerTo : VEnemyAIAction
         Gizmos.color = Color.green;
         Gizmos.DrawLine(oldWaypoint, _waypoint);
 
-        oldMoveDir = waypoint - oldWaypoint;
+        oldMoveDir = (waypoint - oldWaypoint).normalized;
         oldWaypoint = _waypoint;
     }
     public override void MirrorValues()

@@ -133,6 +133,7 @@ public class BEnemyAI : MonoBehaviour
     {
         // debug
         var _actions = GetComponents<VEnemyAIAction>();
+        Array.Sort(_actions, (a, b) => (a.actionId - b.actionId));
         var _waypoint = transform.position;
         var _moveDir = moveDir;
 
@@ -157,6 +158,7 @@ public class BEnemyAI : MonoBehaviour
         moveDir.x = -moveDir.x;
 
         var _actions = GetComponents<VEnemyAIAction>();
+        Array.Sort(_actions, (a, b) => (a.actionId - b.actionId));
         foreach (var action in _actions)
         {
             action.MirrorValues();
