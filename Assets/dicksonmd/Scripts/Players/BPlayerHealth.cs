@@ -73,7 +73,7 @@ public class BPlayerHealth : MonoBehaviour
 
         deathPS.Play();
 
-        FindObjectOfType<BGameOver>(). CheckGameOver();
+        FindObjectOfType<BGameOver>().CheckGameOver();
     }
 
     public void Respawn()

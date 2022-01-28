@@ -142,7 +142,7 @@ public class BEnemyEntryStayLeaveBehaviour : MonoBehaviour
     {
         foreach (var gun in guns)
         {
-            gun.Shoot();
+            gun.Shoot(null);
         }
     }
 

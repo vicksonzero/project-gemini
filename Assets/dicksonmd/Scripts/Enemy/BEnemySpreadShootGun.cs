@@ -8,14 +8,17 @@ public class BEnemySpreadShootGun : MonoBehaviour
     public float bulletSpeed = 2;
     public int bulletCount = 3;
     public bool bulletAimDown = true;
+    public bool bulletCanAimTarget = true;
     [Tooltip("In degrees")]
     public float bulletSpread = 45;
 
-    public void Shoot()
+    public void Shoot(Transform target)
     {
-        var dirStart = transform.up * (bulletAimDown ? -1 : 1);
+        var aimDir = (bulletCanAimTarget && target != null ? (target.position - transform.position)
+            : transform.up * (bulletAimDown ? -1 : 1));
+        aimDir.z = 0;
         var angleStart = bulletSpread * (((float)bulletCount - 1) / 2);
-        var dir = Quaternion.Euler(0, 0, -angleStart) * dirStart;
+        var dir = Quaternion.Euler(0, 0, -angleStart) * aimDir.normalized;
 
         for (int i = 0; i < bulletCount; i++)
         {

@@ -16,6 +16,9 @@ public class BEnemyAI : MonoBehaviour
 
     [Header("States")]
 
+    public Transform target;
+    public bool isTargetGemPlayer = false;
+    public bool showTargetLine = false;
     public VEnemyAIAction[] actions;
     public int currentActionId = 0;
 
@@ -25,6 +28,7 @@ public class BEnemyAI : MonoBehaviour
     public float nextCanShoot = 0;
     public Vector3 startingPosition;
     public Vector3 startingMoveDir;
+    BGem gem;
 
     void OnValidate()
     {
@@ -33,6 +37,7 @@ public class BEnemyAI : MonoBehaviour
     }
     void Awake()
     {
+        gem = FindObjectOfType<BGem>();
         actions = GetComponents<VEnemyAIAction>();
         Array.Sort(actions, (a, b) => (a.actionId - b.actionId));
         foreach (var action in actions)
@@ -82,9 +87,10 @@ public class BEnemyAI : MonoBehaviour
     }
     public void ShootAllGuns()
     {
+        if (isTargetGemPlayer) target = gem.player.transform;
         foreach (var gun in guns)
         {
-            gun.Shoot();
+            gun.Shoot(target);
         }
     }
 

@@ -205,6 +205,9 @@ MonoBehaviour:
   moveDir: {x: -0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1194028}
   - {fileID: 1194029}
@@ -466,6 +469,9 @@ MonoBehaviour:
   moveDir: {x: -1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 15959475}
   currentActionId: 0
@@ -742,6 +748,9 @@ MonoBehaviour:
   moveDir: {x: -1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 37956074}
   currentActionId: 0
@@ -849,6 +858,9 @@ MonoBehaviour:
   moveDir: {x: 1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 63335276}
   currentActionId: 0
@@ -1091,7 +1103,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 1}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -4968.7266, y: -2480.758}
+  m_AnchoredPosition: {x: -7583.8438, y: -3204.2466}
   m_SizeDelta: {x: 0, y: 1557.1494}
   m_Pivot: {x: 0, y: 1}
 --- !u!1 &223265359
@@ -1202,7 +1214,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919bdab59e3cb7e42880f728cbf0c21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionId: 2
+  actionId: 3
   doShoot: 0
   waypoint: {x: 0, y: 0, z: 0}
 --- !u!114 &238540759
@@ -1217,7 +1229,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd19c6a69d379c349bfedf4a06f3b7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionId: 1
+  actionId: 2
   stayLength: 3
   doShoot: 1
   untilTime: 0
@@ -1253,8 +1265,12 @@ MonoBehaviour:
   moveDir: {x: 0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 238540760}
+  - {fileID: 238540763}
   - {fileID: 238540759}
   - {fileID: 238540758}
   currentActionId: 0
@@ -1268,6 +1284,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5219041364907929016, guid: 905e4b80b8bb1834095cc8ea93086342, type: 3}
   m_PrefabInstance: {fileID: 238540756}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &238540763
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 238540757}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c4b3197cc5de64ba1305b79b648e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionId: 1
+  targetMethod: 3
+  showTargetLine: 0
 --- !u!1001 &255154228
 PrefabInstance:
   m_ObjectHideFlags: 0
@@ -1483,6 +1514,9 @@ MonoBehaviour:
   moveDir: {x: -1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 255340410}
   currentActionId: 0
@@ -1721,6 +1755,9 @@ MonoBehaviour:
   moveDir: {x: -0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 297797084}
   - {fileID: 297797086}
@@ -2189,6 +2226,9 @@ MonoBehaviour:
   moveDir: {x: 1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 374691450}
   currentActionId: 0
@@ -2370,6 +2410,9 @@ MonoBehaviour:
   moveDir: {x: -1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 392438829}
   currentActionId: 0
@@ -2700,6 +2743,9 @@ MonoBehaviour:
   moveDir: {x: -1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 415184699}
   currentActionId: 0
@@ -2807,6 +2853,9 @@ MonoBehaviour:
   moveDir: {x: 1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 417509127}
   currentActionId: 0
@@ -3085,6 +3134,9 @@ MonoBehaviour:
   moveDir: {x: -1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 462827009}
   currentActionId: 0
@@ -3223,6 +3275,9 @@ MonoBehaviour:
   moveDir: {x: 0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 465544647}
   - {fileID: 465544646}
@@ -3315,6 +3370,9 @@ MonoBehaviour:
   moveDir: {x: 0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 469031083}
   - {fileID: 469031084}
@@ -3534,6 +3592,9 @@ MonoBehaviour:
   moveDir: {x: -1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 481238889}
   currentActionId: 0
@@ -3715,6 +3776,9 @@ MonoBehaviour:
   moveDir: {x: -1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 497351067}
   currentActionId: 0
@@ -4613,6 +4677,9 @@ MonoBehaviour:
   moveDir: {x: 1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 703250949}
   currentActionId: 0
@@ -4779,7 +4846,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919bdab59e3cb7e42880f728cbf0c21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionId: 2
+  actionId: 3
   doShoot: 0
   waypoint: {x: 0, y: 0, z: 0}
 --- !u!114 &741574807
@@ -4794,7 +4861,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd19c6a69d379c349bfedf4a06f3b7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionId: 1
+  actionId: 2
   stayLength: 3
   doShoot: 1
   untilTime: 0
@@ -4813,8 +4880,12 @@ MonoBehaviour:
   moveDir: {x: -0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 741574809}
+  - {fileID: 741574810}
   - {fileID: 741574807}
   - {fileID: 741574806}
   currentActionId: 0
@@ -4840,6 +4911,21 @@ MonoBehaviour:
   waypoint: {x: -0, y: -4.5, z: 0}
   maxSteer: 0.35
   doShoot: 0
+--- !u!114 &741574810
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 741574805}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c4b3197cc5de64ba1305b79b648e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionId: 1
+  targetMethod: 3
+  showTargetLine: 0
 --- !u!1 &745210366
 GameObject:
   m_ObjectHideFlags: 0
@@ -5554,6 +5640,9 @@ MonoBehaviour:
   moveDir: {x: -1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 885307814}
   currentActionId: 0
@@ -5929,6 +6018,9 @@ MonoBehaviour:
   moveDir: {x: 1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 929522694}
   currentActionId: 0
@@ -6036,6 +6128,9 @@ MonoBehaviour:
   moveDir: {x: 1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 938365899}
   currentActionId: 0
@@ -6174,6 +6269,9 @@ MonoBehaviour:
   moveDir: {x: -0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 954909125}
   - {fileID: 954909124}
@@ -11114,7 +11212,7 @@ MonoBehaviour:
   - {fileID: 1056979746}
   - {fileID: 1727005210}
   flyAwayToVictory: {fileID: 963174249}
-  waveIndex: 0
+  waveIndex: 1
   fixedTime: 0
   nextTick: 0
 --- !u!114 &963174249
@@ -11234,6 +11332,9 @@ MonoBehaviour:
   moveDir: {x: 0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 965714159}
   - {fileID: 965714161}
@@ -11596,6 +11697,9 @@ MonoBehaviour:
   moveDir: {x: 0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1025080578}
   - {fileID: 1025080577}
@@ -11736,6 +11840,9 @@ MonoBehaviour:
   moveDir: {x: -0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1027077793}
   - {fileID: 1027077792}
@@ -12328,6 +12435,9 @@ MonoBehaviour:
   moveDir: {x: 1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1145080058}
   currentActionId: 0
@@ -12516,6 +12626,9 @@ MonoBehaviour:
   moveDir: {x: -1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1236193737}
   currentActionId: 0
@@ -12628,6 +12741,9 @@ MonoBehaviour:
   moveDir: {x: -0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1239377892}
   - {fileID: 1239377893}
@@ -12954,6 +13070,9 @@ MonoBehaviour:
   moveDir: {x: 1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1268542079}
   currentActionId: 0
@@ -13461,6 +13580,9 @@ MonoBehaviour:
   moveDir: {x: -0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1320999787}
   - {fileID: 1320999785}
@@ -13587,6 +13709,9 @@ MonoBehaviour:
   moveDir: {x: 1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1321168768}
   currentActionId: 0
@@ -13919,6 +14044,9 @@ MonoBehaviour:
   moveDir: {x: -1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1356332231}
   currentActionId: 0
@@ -14123,6 +14251,9 @@ MonoBehaviour:
   moveDir: {x: 1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1386668097}
   currentActionId: 0
@@ -14776,6 +14907,9 @@ MonoBehaviour:
   moveDir: {x: 1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1504279920}
   currentActionId: 0
@@ -14930,6 +15064,9 @@ MonoBehaviour:
   moveDir: {x: -1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1551615964}
   currentActionId: 0
@@ -15051,6 +15188,9 @@ MonoBehaviour:
   moveDir: {x: -0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1555888906}
   - {fileID: 1555888904}
@@ -15172,8 +15312,12 @@ MonoBehaviour:
   moveDir: {x: 0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1573250637}
+  - {fileID: 1573250641}
   - {fileID: 1573250639}
   - {fileID: 1573250643}
   currentActionId: 0
@@ -15194,7 +15338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd19c6a69d379c349bfedf4a06f3b7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionId: 1
+  actionId: 2
   stayLength: 3
   doShoot: 1
   untilTime: 0
@@ -15203,6 +15347,21 @@ Transform:
   m_CorrespondingSourceObject: {fileID: 5219041364907929016, guid: 905e4b80b8bb1834095cc8ea93086342, type: 3}
   m_PrefabInstance: {fileID: 1573250635}
   m_PrefabAsset: {fileID: 0}
+--- !u!114 &1573250641
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1573250636}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c4b3197cc5de64ba1305b79b648e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionId: 1
+  targetMethod: 3
+  showTargetLine: 0
 --- !u!114 &1573250643
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -15215,7 +15374,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919bdab59e3cb7e42880f728cbf0c21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionId: 2
+  actionId: 3
   doShoot: 0
   waypoint: {x: 0, y: 0, z: 0}
 --- !u!1001 &1573380048
@@ -15317,6 +15476,9 @@ MonoBehaviour:
   moveDir: {x: 1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1573380051}
   currentActionId: 0
@@ -16457,6 +16619,9 @@ MonoBehaviour:
   moveDir: {x: 1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1764135098}
   currentActionId: 0
@@ -16547,6 +16712,9 @@ MonoBehaviour:
   moveDir: {x: 0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1766000667}
   - {fileID: 1766000668}
@@ -16687,8 +16855,12 @@ MonoBehaviour:
   moveDir: {x: -0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1794908714}
+  - {fileID: 1794908717}
   - {fileID: 1794908715}
   - {fileID: 1794908716}
   currentActionId: 0
@@ -16726,7 +16898,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: fd19c6a69d379c349bfedf4a06f3b7dd, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionId: 1
+  actionId: 2
   stayLength: 3
   doShoot: 1
   untilTime: 0
@@ -16742,9 +16914,24 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 919bdab59e3cb7e42880f728cbf0c21d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  actionId: 2
+  actionId: 3
   doShoot: 0
   waypoint: {x: 0, y: 0, z: 0}
+--- !u!114 &1794908717
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1794908712}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 71c4b3197cc5de64ba1305b79b648e69, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  actionId: 1
+  targetMethod: 3
+  showTargetLine: 0
 --- !u!1 &1804312803
 GameObject:
   m_ObjectHideFlags: 0
@@ -17466,6 +17653,9 @@ MonoBehaviour:
   moveDir: {x: -1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1852741926}
   currentActionId: 0
@@ -17573,6 +17763,9 @@ MonoBehaviour:
   moveDir: {x: -1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1871847777}
   currentActionId: 0
@@ -17694,6 +17887,9 @@ MonoBehaviour:
   moveDir: {x: 0, y: -1, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 1875890436}
   - {fileID: 1875890434}
@@ -23217,6 +23413,9 @@ MonoBehaviour:
   moveDir: {x: 1, y: 0.7, z: 0}
   moveSpeed: 2
   rapid: 1.3
+  target: {fileID: 0}
+  isTargetGemPlayer: 0
+  showTargetLine: 0
   actions:
   - {fileID: 2079543068}
   currentActionId: 0
