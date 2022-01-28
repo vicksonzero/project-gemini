@@ -396,7 +396,7 @@ MonoBehaviour:
   fadeInTime: 2.5
   fadeStayTime: 2
   fadeOutTime: 2.5
-  nextSceneName: Scene1
+  nextSceneName: TItle
 --- !u!1 &456158227
 GameObject:
   m_ObjectHideFlags: 0

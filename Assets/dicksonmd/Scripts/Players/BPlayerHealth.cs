@@ -8,6 +8,7 @@ public class BPlayerHealth : MonoBehaviour
     public float respawnLength = 10;
     public float respawnAt = 0;
     public bool isDead = false;
+    public bool isStayDead = false;
 
     public SpriteRenderer playerSprite;
     public Text deathCountdownLabel;
@@ -18,17 +19,17 @@ public class BPlayerHealth : MonoBehaviour
     void Start()
     {
         passGem = FindObjectOfType<BPassGem>();
-            deathCountdownLabel.enabled = false;
+        deathCountdownLabel.enabled = false;
     }
 
     // Update is called once per frame
     void FixedUpdate()
     {
-        if (isDead)
+        if (isDead && deathCountdownLabel.enabled)
         {
-            deathCountdownLabel.text = "" + (int)(respawnAt - Time.fixedTime);
+            deathCountdownLabel.text = "" + (int)(respawnAt - Time.fixedTime + 1);
         }
-        if (isDead && Time.fixedTime >= respawnAt)
+        if (isDead && !isStayDead && Time.fixedTime >= respawnAt)
         {
             deathCountdownLabel.enabled = false;
             Respawn();
@@ -71,11 +72,15 @@ public class BPlayerHealth : MonoBehaviour
         playerSprite.color = c;
 
         deathPS.Play();
+
+        FindObjectOfType<BGameOver>(). CheckGameOver();
     }
 
     public void Respawn()
     {
         isDead = false;
+        isStayDead = false;
+
         var guns = GetComponentsInChildren<BGunWeapon>(true);
         foreach (var gun in guns)
         {
@@ -84,5 +89,11 @@ public class BPlayerHealth : MonoBehaviour
         var c = playerSprite.color;
         c.a = 1;
         playerSprite.color = c;
+    }
+
+    public void StayDead()
+    {
+        isStayDead = true;
+        deathCountdownLabel.enabled = false;
     }
 }
