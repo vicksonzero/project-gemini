@@ -8,6 +8,8 @@ public class BGem : MonoBehaviour
     public BPlayer player;
     public float moveSpeed = 3;
     public int bits = 0;
+    public AudioSource addBitSound;
+    public AudioSource upgradeSound;
 
     public Image bitsGauge;
     public BGemWingman[] wingmans;
@@ -47,10 +49,12 @@ public class BGem : MonoBehaviour
     public void AddBitValue(int newBits)
     {
         bits += newBits;
+        addBitSound?.Play();
 
         if (!unlocked && bits >= upgradeReq[gunLv])
         {
             unlocked = true;
+            upgradeSound?.Play();
             gunLv++;
 
             foreach (var wingman in wingmans)
@@ -79,6 +83,7 @@ public class BGem : MonoBehaviour
                     gun.enabled = true;
                 }
             }
+            upgradeSound?.Play();
             gunLv++;
         }
 

@@ -15,6 +15,7 @@ public class BPlayerHealth : MonoBehaviour
     public SpriteRenderer playerSprite;
     public Text deathCountdownLabel;
     public ParticleSystem deathPS;
+    public AudioSource deathSound;
 
     BPassGem passGem;
     // Start is called before the first frame update
@@ -77,7 +78,8 @@ public class BPlayerHealth : MonoBehaviour
         c.a = 0.5f;
         playerSprite.color = c;
 
-        deathPS.Play();
+        deathPS?.Play();
+        deathSound?.Play();
 
         FindObjectOfType<BGameOver>().CheckGameOver();
     }
