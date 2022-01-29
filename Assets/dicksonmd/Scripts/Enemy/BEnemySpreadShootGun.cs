@@ -30,7 +30,7 @@ public class BEnemySpreadShootGun : MonoBehaviour
     void ShootAtDirection(Vector3 dir)
     {
         var bullet = Instantiate(bulletPrefab, transform.position, Quaternion.identity);
-        bullet.transform.position += Vector3.forward;
+        bullet.transform.position -= Vector3.forward * 2;
         var bulletRb = bullet.GetComponent<Rigidbody2D>();
         bulletRb.velocity = dir * bulletSpeed;
     }

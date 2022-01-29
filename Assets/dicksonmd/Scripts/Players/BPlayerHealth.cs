@@ -7,6 +7,7 @@ public class BPlayerHealth : MonoBehaviour
 {
     public float respawnLength = 10;
     public float respawnLengthWithGem = 10;
+    public float respawnLengthFromContinue = 3;
     public float respawnAt = 0;
     public bool isDead = false;
     public bool isStayDead = false;
@@ -100,5 +101,12 @@ public class BPlayerHealth : MonoBehaviour
     {
         isStayDead = true;
         deathCountdownLabel.enabled = false;
+    }
+
+    public void Revive()
+    {
+        isStayDead = false;
+        respawnAt = Time.fixedTime + respawnLengthFromContinue;
+        deathCountdownLabel.enabled = true;
     }
 }

@@ -44,7 +44,7 @@ public class BGameOver : MonoBehaviour
     {
         foreach (var player in FindObjectsOfType<BPlayerHealth>(true))
         {
-            player.Respawn();
+            player.Revive();
         }
         FindObjectOfType<BSpawner>().enabled = true;
 

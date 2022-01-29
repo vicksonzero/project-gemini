@@ -17,6 +17,7 @@ public class BSpawnTick : MonoBehaviour
     {
         foreach (var obj in objects)
         {
+            if (obj == null) continue;
             obj.SetActive(true);
         }
     }
@@ -40,6 +41,7 @@ public class BSpawnTick : MonoBehaviour
     {
         foreach (var obj in objects)
         {
+            if (obj == null) continue;
             var pos = obj.transform.position;
             pos.x = -pos.x;
             obj.transform.position = pos;

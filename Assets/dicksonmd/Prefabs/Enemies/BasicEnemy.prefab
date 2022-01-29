@@ -150,8 +150,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 788904ee8e5ad814d8951cc2d9aa9d9f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  hp: 14
-  maxHp: 14
+  hp: 20
+  maxHp: 20
   hitScore: 100
   deathScore: 1000
   deathEffect: {fileID: 8631913612874881224, guid: 623d51aa9acb2fd488bcb47bc292f015, type: 3}
@@ -302,7 +302,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   bulletPrefab: {fileID: 8107307491136584940, guid: 5e397e91aaaa0834c85b1f1a80fd7894, type: 3}
-  bulletSpeed: 2
-  bulletCount: 3
+  bulletSpeed: 3
+  bulletCount: 1
   bulletAimDown: 1
+  bulletCanAimTarget: 1
   bulletSpread: 45

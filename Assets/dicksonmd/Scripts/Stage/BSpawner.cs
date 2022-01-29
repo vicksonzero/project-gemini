@@ -1,5 +1,6 @@
 using System.Collections;
 using System.Collections.Generic;
+using System.Linq;
 using UnityEngine;
 using static BEnemyEntryStayLeaveBehaviour;
 using static BEnemyRunStraightBehaviour;
@@ -14,12 +15,15 @@ public class BSpawner : MonoBehaviour
     public int waveIndex;
     public float fixedTime;
     public float nextTick;
+    public float totalTime;
 
 
 
     void OnValidate()
     {
         waves = GetComponentsInChildren<BSpawnWave>(true);
+
+        totalTime = waves.Aggregate(0f, (acc, wave) => acc + wave.GetWaveLength());
     }
     // Start is called before the first frame update
     void Awake()

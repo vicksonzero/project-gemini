@@ -9,4 +9,5 @@ public class BEnemyBullet : MonoBehaviour
     public static int nextId = 0;
 
     public int bulletId = 0;
+
 }
