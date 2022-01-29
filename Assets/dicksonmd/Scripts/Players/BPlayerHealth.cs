@@ -6,6 +6,7 @@ using UnityEngine.UI;
 public class BPlayerHealth : MonoBehaviour
 {
     public float respawnLength = 10;
+    public float respawnLengthWithGem = 10;
     public float respawnAt = 0;
     public bool isDead = false;
     public bool isStayDead = false;
@@ -53,11 +54,15 @@ public class BPlayerHealth : MonoBehaviour
 
     public void Die()
     {
-        respawnAt = Time.fixedTime + respawnLength;
+        var deadPlayerHasGem = passGem.gem.player == GetComponent<BPlayer>();
+
+        var _respawnLength = (deadPlayerHasGem ? respawnLengthWithGem : respawnLength);
+        respawnAt = Time.fixedTime + _respawnLength;
+
         isDead = true;
         deathCountdownLabel.enabled = true;
 
-        if (passGem.gem.player == GetComponent<BPlayer>())
+        if (deadPlayerHasGem)
         {
             passGem.PassGem();
         }

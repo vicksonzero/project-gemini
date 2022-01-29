@@ -147,7 +147,7 @@ MonoBehaviour:
   value: 10
   target: {fileID: 0}
   chaseSpeed: 5
-  scrollSpeed: 2
+  scrollSpeed: 2.5
   scatterSpeed: 7
 --- !u!50 &4694848751525860059
 Rigidbody2D:

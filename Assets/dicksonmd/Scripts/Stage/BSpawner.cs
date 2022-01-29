@@ -37,7 +37,11 @@ public class BSpawner : MonoBehaviour
 
     void Start()
     {
+#if UNITY_EDITOR
+        Debug.Log($"BSpawner UNITY_EDITOR: waveIndex={waveIndex}");
+#else
         waveIndex = 0;
+#endif
         nextTick += waves[waveIndex].GetWaveLength();
         waves[waveIndex].gameObject.SetActive(true);
     }
