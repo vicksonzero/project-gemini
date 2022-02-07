@@ -22,7 +22,7 @@ public class BEnemyAI : MonoBehaviour
     public VEnemyAIAction[] actions;
     public int currentActionId = 0;
 
-    public BEnemySpreadShootGun[] guns;
+    public VEnemyGun[] guns;
 
     public int gunID = 0;
     public float nextCanShoot = 0;
@@ -54,7 +54,7 @@ public class BEnemyAI : MonoBehaviour
 
     void Start()
     {
-        guns = GetComponentsInChildren<BEnemySpreadShootGun>();
+        guns = GetComponentsInChildren<VEnemyGun>();
         nextCanShoot = Time.fixedTime;
 
         actions[0].enabled = true;
@@ -90,7 +90,7 @@ public class BEnemyAI : MonoBehaviour
         if (isTargetGemPlayer) target = gem.player.transform;
         foreach (var gun in guns)
         {
-            gun.Shoot(target);
+            gun.Shoot(this, -1);
         }
     }
 

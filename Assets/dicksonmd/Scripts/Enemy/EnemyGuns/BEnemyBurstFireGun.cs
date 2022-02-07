@@ -2,7 +2,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-public class BEnemySpreadShootGun : MonoBehaviour
+public class BEnemyBurstFireGun : VEnemyGun
 {
     public Transform bulletPrefab;
     public float bulletSpeed = 2;
@@ -12,9 +12,9 @@ public class BEnemySpreadShootGun : MonoBehaviour
     [Tooltip("In degrees")]
     public float bulletSpread = 45;
 
-    public void Shoot(Transform target)
+    public override void Shoot(BEnemyAI ai, int burstLeft = 0)
     {
-        var aimDir = (bulletCanAimTarget && target != null ? (target.position - transform.position)
+        var aimDir = (bulletCanAimTarget && ai.target != null ? (ai.target.position - transform.position)
             : transform.up * (bulletAimDown ? -1 : 1));
         aimDir.z = 0;
         var angleStart = bulletSpread * (((float)bulletCount - 1) / 2);
